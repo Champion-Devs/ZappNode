@@ -1,6 +1,10 @@
 const express = require('express');
+const connectDB = require('./config/db');
 
 const app = express();
+
+// Connect MongoDB
+connectDB();
 
 // Initialize MiddleWare
 app.use(express.json({ extentend: false }));
