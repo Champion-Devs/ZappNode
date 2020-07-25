@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-    BrowserRouter as Router,
     Switch,
     Route
 } from "react-router-dom";
@@ -19,7 +18,6 @@ function Home() {
     return (
         <React.Fragment>
             <NavBar></NavBar>
-            <Router>
                 <Switch>
                     <Route exact path="/features">
                         <Features />
@@ -40,7 +38,6 @@ function Home() {
                         <Features />
                     </Route>
                 </Switch>
-            </Router>
             <Footer></Footer>
         </React.Fragment>
     )

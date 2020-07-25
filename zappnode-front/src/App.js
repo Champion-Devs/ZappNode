@@ -1,4 +1,7 @@
 import React from 'react';
+import {
+  BrowserRouter as Router
+} from "react-router-dom";
 import './tailwind.generated.css';
 
 import Home from "./Home";
@@ -6,8 +9,10 @@ import Home from "./Home";
 function App() {
   return (
     <>
-      <h1 className="text-center">WELCOME TO ZAPPNODE</h1>
-      <Home></Home>
+      <Router>
+        <h1 className="text-center">WELCOME TO ZAPPNODE</h1>
+        <Home></Home>
+      </Router>
     </>
   );
 }
