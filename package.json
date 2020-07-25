@@ -24,9 +24,6 @@
     "express": "^4.17.1",
     "express-validator": "^6.6.0",
     "mongoose": "^5.9.25",
-    "nodemon": "^2.0.4",
-    "react-redux": "^7.2.0",
-    "redux": "^4.0.5",
-    "tailwindcss": "^1.5.2"
+    "nodemon": "^2.0.4"
   }
 }

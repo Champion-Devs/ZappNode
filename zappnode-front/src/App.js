@@ -1,10 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './tailwind.generated.css';
 
 function App() {
   return (
-    <h1>WELCOME TO ZAPPNODE</h1>
+    <h1 className="text-center">WELCOME TO ZAPPNODE</h1>
   );
 }
 
