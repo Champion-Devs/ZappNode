@@ -19,3 +19,7 @@ module.exports = function (passport) {
     )
   );
 };
+
+// Facebook Strategy
+
+// Local Strategy
