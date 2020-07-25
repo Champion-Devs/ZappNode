@@ -2,13 +2,14 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const mongoose = require('mongoose');
 const keys = require('./keys');
 
+// Google Strategy
 module.exports = function (passport) {
   passport.use(
     new GoogleStrategy(
       {
         clientID: keys.GOOGLE_CLIENT_ID,
         clientSecret: keys.GOOGLE_CLIENT_SECRET,
-        callbackURL: '/auth/google/callback',
+        callbackURL: '/api/auth/google/callback',
         proxy: true,
       },
       (accessToken, refreshToken, profile, cb) => {
@@ -18,3 +19,7 @@ module.exports = function (passport) {
     )
   );
 };
+
+// Facebook Strategy
+
+// Local Strategy
