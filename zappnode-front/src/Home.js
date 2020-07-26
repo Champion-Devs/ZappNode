@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { Login, Pricing, Register, Usage, Features } from './routes';
+import { Login, Pricing, Register, Usage, Features, Dashboard } from './routes';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 
@@ -24,6 +24,9 @@ function Home() {
         </Route>
         <Route exact path="/register">
           <Register />
+        </Route>
+        <Route exact path="/dashboard">
+          <Dashboard />
         </Route>
         <Route path="/">
           <Features />

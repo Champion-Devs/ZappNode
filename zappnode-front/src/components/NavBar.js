@@ -28,6 +28,10 @@ function NavBar() {
       label: 'Pricing',
       command: () => handleRoute('/pricing'),
     },
+    {
+      label: 'Dashboard',
+      command: () => handleRoute('/dashboard'),
+    },
   ];
 
   return (
