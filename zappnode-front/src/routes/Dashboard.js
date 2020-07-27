@@ -8,7 +8,6 @@ import { Panel } from 'primereact/panel';
 import { DataView, DataViewLayoutOptions } from 'primereact/dataview';
 import { Button } from 'primereact/button';
 import { Dropdown } from 'primereact/dropdown';
-
 import DataTable from '../components/dashboard/DataTable';
 
 function Dashboard() {
@@ -63,28 +62,26 @@ function Dashboard() {
     return (
       <div className="p-col-12">
         <div>
-          <div>
-            <div className="p-grid">
-              <div className="p-col-12">
-                <b>{tracker.percentage}</b>
-              </div>
-              <div className="p-col-12">
-                Name: <b>{tracker.name}</b>
-              </div>
-              <div className="p-col-12">
-                Type: <b>{tracker.type}</b>
-              </div>
+          <div className="bg-gray-100 p-list">
+            <div className="p-col-12">
+              <b>{tracker.percentage}</b>
+            </div>
+            <div className="p-col-12">
+              Name: <b>{tracker.name}</b>
+            </div>
+            <div className="p-col-12">
+              Type: <b>{tracker.type}</b>
             </div>
           </div>
-          <Button
-            onClick={(e) => {
-              setSelectedTracker(tracker);
-              setVisible(true);
-            }}
-          >
-            Search
-          </Button>
         </div>
+        <Button
+          onClick={(e) => {
+            setSelectedTracker(tracker);
+            setVisible(true);
+          }}
+        >
+          Search
+        </Button>
       </div>
     );
   };
@@ -111,7 +108,6 @@ function Dashboard() {
     if (!tracker) {
       return;
     }
-
     if (layout === 'list') return renderListItem(tracker);
     else if (layout === 'grid') return renderGridItem(tracker);
   };
@@ -157,9 +153,8 @@ function Dashboard() {
   };
 
   const header = renderHeader();
-
   return (
-    <div className="dataview-demo">
+    <div className="mb-10 dataview-demo">
       <DataView
         value={trackers}
         layout={layout}
@@ -167,7 +162,7 @@ function Dashboard() {
         itemTemplate={itemTemplate}
         paginatorPosition={'both'}
         paginator={true}
-        rows={20}
+        rows={3} // Value must be lower than `trackers.length`
         sortOrder={sortOrder}
         sortField={sortField}
       />
@@ -175,6 +170,9 @@ function Dashboard() {
       <Dialog header="Trackers" visible={visible} modal={true} onHide={() => setVisible(false)}>
         {renderTrackerDialogContent()}
       </Dialog>
+      <div className="mt-12">
+        <DataTable />
+      </div>
     </div>
   );
 }
