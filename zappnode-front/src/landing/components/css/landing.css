@@ -1,0 +1,12 @@
+:root {
+    --color-primary : #2ECC71;
+    --color-secondary: #F3F3F3;
+    --text-color-primary: #F3F3F3;
+    --text-color-secondary: ##A9A9A9;
+    --bg-primary: #03010B;
+    --color-UI: #E41919;
+}
+
+.bg-primary{
+    background: var(--big-primary);
+}

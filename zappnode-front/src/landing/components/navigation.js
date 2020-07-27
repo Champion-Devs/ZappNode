@@ -1,6 +1,4 @@
-const { useState, useEffect } = require("react")
-
-import react, {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import '.../tailwind.generated.css';
 
 const Navigation = props => {

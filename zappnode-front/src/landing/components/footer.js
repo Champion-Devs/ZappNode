@@ -1,10 +1,8 @@
-const { useState, useEffect } = require("react")
-
-import react, {useState, useEffect} from 'react';
-import '.../tailwind.generated.css';
+import React, {useState, useEffect} from 'react';
+import './css/tailwind.generated.css';
 
 const Footer = props => {
     return;
 }
 
-export default Contact;
+export default Footer;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import Landing from './landing/index';
 import './tailwind.generated.css';
 import 'primereact/resources/themes/nova-light/theme.css';
 import 'primereact/resources/primereact.min.css';
@@ -11,9 +12,9 @@ function App() {
   return (
     <>
       <Router>
-        <h1 className="text-center">WELCOME TO ZAPPNODE</h1>
         <Home></Home>
       </Router>
+      <Landing/>
     </>
   );
 }
