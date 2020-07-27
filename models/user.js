@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Monitor = require('./monitor');
+const {Monitor} = require('./monitor');
 const Schema = mongoose.Schema;
 
 const User = new Schema({
