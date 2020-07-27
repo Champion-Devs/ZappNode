@@ -2,7 +2,10 @@ import React, {useState, useEffect} from 'react';
 import './css/tailwind.generated.css';
 
 const Features = props => {
-    return;
+    return(
+        <>
+        </>
+    )
 }
 
 export default Contact;

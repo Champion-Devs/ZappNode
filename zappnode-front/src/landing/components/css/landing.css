@@ -8,5 +8,42 @@
 }
 
 .bg-primary{
-    background: var(--big-primary);
+    background: var(--bg-primary);
+}
+
+.text-primary{
+    color: var(--text-color-primary)
+}
+
+.h-full{
+    height: 95vh;
+}
+
+.color-secondary{
+    color: var(--color-secondary);
+}
+
+.btn-primary{
+    background: var(--color-primary);
+}
+
+.text-cl-none{
+    color: var(--text-color-primary);
+}
+
+.text-cl-none:hover{
+    color: var(--text-color-primary);
+}
+
+.text-ut{
+    color: var(--color-UI);
+}
+
+.btn-secondary{
+    color: var(--color-primary);
+    background: var(--color-secondary);
+}
+
+.btn-secondary:hover{
+    color: var(--color-primary);
 }

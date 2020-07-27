@@ -11,9 +11,6 @@ import Home from './Home';
 function App() {
   return (
     <>
-      <Router>
-        <Home></Home>
-      </Router>
       <Landing/>
     </>
   );
