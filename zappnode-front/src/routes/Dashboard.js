@@ -9,6 +9,8 @@ import { DataView, DataViewLayoutOptions } from 'primereact/dataview';
 import { Button } from 'primereact/button';
 import { Dropdown } from 'primereact/dropdown';
 
+import DataTable from '../components/dashboard/DataTable';
+
 function Dashboard() {
   const [trackers, setTrackers] = useState([]);
   const [visible, setVisible] = useState(false);
