@@ -17,7 +17,7 @@ const websites = [
   {
     id: 12345,
     title: 'DNS',
-    address: '8.8.8.8',
+    ip: '23.235.200.166',
     interval: 1,
     active: true,
     paused: false,
@@ -29,8 +29,8 @@ const websites = [
 
 const pingUrls = () => {
   websites.map((website) => {
-    let monitor = new Ping({
-      website: website.url,
+    const monitor = new Ping({
+      website: website.url || website.ip,
       interval: website.interval,
     });
 

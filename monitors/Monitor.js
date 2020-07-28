@@ -1,6 +1,7 @@
 const util = require('util');
 const EventEmitter = require('events').EventEmitter;
 const httpMonitor = require('./HttpMonitor');
+const tcpMonitor = require('./TcpMonitor');
 const utils = require('./Utlis');
 
 function Monitor(opts, state) {
@@ -106,12 +107,12 @@ Monitor.prototype.getState = function () {
   };
 };
 
+// Monitor Start
 Monitor.prototype.start = function (method) {
   let host = this.website || this.address + ':' + this.port;
   let startTime = utils.getFormatedDate();
 
-  const ONE_MINUTE = 60 * 1000;
-  const INTERVAL = this.interval * ONE_MINUTE;
+  const INTERVAL = this.interval * 60000;
 
   /*eslint no-console: ["error", { allow: ["warn", "error", "log"] }] */
   console.log(`\nMonitoring:${host}\nTime: ${startTime}\n`);
@@ -132,3 +133,157 @@ Monitor.prototype.start = function (method) {
     }, INTERVAL);
   }
 };
+
+// Monitor Pause
+Monitor.prototype.pause = function () {
+  if (this.handle) {
+    clearInterval(this.handle);
+    this.handle = null;
+    this.paused = true;
+
+    /*eslint no-console: ["error", { allow: ["warn", "error", "log"] }] */
+    console.log('%s has paused', this.title || this.host);
+  }
+};
+
+// Monitor Resume
+Monitor.prototype.resume = function () {
+  if (this.website && this.active) {
+    this.paused = false;
+
+    this.start('http');
+
+    /*eslint no-console: ["error", { allow: ["warn", "error", "log"] }] */
+    console.log('%s has resumed', this.title || this.host);
+  } else if (this.address && this.active) {
+    this.paused = false;
+
+    this.start('tcp');
+
+    /*eslint no-console: ["error", { allow: ["warn", "error", "log"] }] */
+    console.log('%s has resumed', this.title || this.host);
+  }
+};
+
+// Monitor Reset
+Monitor.prototype.reset = function () {
+  this.active = true;
+
+  if (this.website) {
+    this.start('http');
+
+    /*eslint no-console: ["error", { allow: ["warn", "error", "log"] }] */
+    console.log('%s is reset', this.title || this.host);
+  } else {
+    this.start('tcp');
+
+    /*eslint no-console: ["error", { allow: ["warn", "error", "log"] }] */
+    console.log('%s is reset', this.title || this.host);
+  }
+
+  return this;
+};
+
+// Ping Websites
+Monitor.prototype.pingHTTP = function () {
+  this.totalRequests += 1;
+  this.lastRequest = Date.now();
+
+  const options = {
+    website: this.website,
+    method: this.method,
+    httpOptions: this.httpOptions,
+  };
+
+  process.nextTick(() => {
+    httpMonitor(options, (error, data, res) => {
+      if (this.expect && this.expect.statusCode) {
+        if (
+          parseInt(res.statusCode, 10) === parseInt(this.expect.statusCode, 10)
+        ) {
+          this.isUp = true;
+        } else {
+          this.isUp = false;
+          this.lastDownTime = Date.now();
+          this.totalDownTimes += 1;
+        }
+      } else if (res.statusCode == 200) {
+        this.isUp = true;
+      } else {
+        this.isUp = false;
+        this.lastDownTime = Date.now();
+        this.totalDownTimes += 1;
+      }
+
+      data.error = error;
+      data.httpResponse = res;
+
+      this.response(this.isUp, res.statusCode, data);
+    });
+  });
+};
+
+//Ping IP
+Monitor.prototype.pingTCP = function () {
+  this.totalRequests += 1;
+  this.lastRequest = Date.now();
+
+  process.nextTick(() => {
+    tcpMonitor(
+      {
+        address: this.address,
+      },
+      (error, data) => {
+        if (error) {
+          this.isUp = false;
+          this.lastDownTime = Date.now();
+          this.totalDownTimes += 1;
+
+          data.error = error;
+
+          this.response(this.isUp, 500, data);
+        } else {
+          this.isUp = true;
+
+          this.response(this.isUp, 200, data);
+        }
+      }
+    );
+  });
+};
+
+// Sending Ping Response
+Monitor.prototype.response = function (isUp, statusCode, data) {
+  let responseData = utils.responseData(
+    statusCode,
+    this.website,
+    data.responseTime,
+    this.address,
+    this.port
+  );
+
+  if (data.httpResponse) {
+    responseData.httpResponse = data.httpResponse;
+  }
+
+  if (isUp) {
+    this.emit('up', responseData, this.getState());
+  } else {
+    if (data.timeout) {
+      this.emit('timeout', data.error, responseData, this.getState());
+    } else if (data.error) {
+      this.emit('error', data.error, responseData, this.getState());
+    } else {
+      this.emit('down', responseData, this.getState());
+    }
+  }
+};
+
+// Error handling
+process.on('uncaughtException', function (err) {
+  /*eslint no-console: ["error", { allow: ["warn", "error", "log"] }] */
+  console.log('UNCAUGHT EXCEPTION', err);
+  process.exit(1);
+});
+
+module.exports = Monitor;
