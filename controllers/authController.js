@@ -7,7 +7,7 @@ exports.signup = async (req, res, next) => {
       throw "Oups! Something is missing";
     }
 
-    //check if the user exist
+    //check if the user exists
     if (await User.findOne({ email })) {
       throw "User already exist";
     }
