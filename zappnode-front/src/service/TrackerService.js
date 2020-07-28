@@ -1,8 +1,7 @@
-import axios from 'axios';
-
 export class TrackerService {
   async getTrackerData() {
-    const res = await axios.get('data/track-data.json');
-    return res.data.data;
+    const res = await fetch('data/track-data.json');
+    const data = await res.json();
+    return data.data;
   }
 }
