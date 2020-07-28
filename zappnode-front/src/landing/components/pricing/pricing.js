@@ -5,7 +5,7 @@ import '../css/landing.css';
 
 const Pricing = () => {
     return(
-        <section className="pricing bg-primary text-primary flex flex-col mt-16">
+        <section className="pricing bg-primary text-primary flex flex-col py-10 pb-32 ">
         <h1 className="text-4xl font-extrabold text-center mt-16">We give the best pricing you can afford.</h1>
         <p className="text-center mt-6 font-semibold">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Laoreet sagittis arcu.</p>
         <p className="text-center font-semibold">Lorem ipsum dolor sit amet.</p>

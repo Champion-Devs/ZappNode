@@ -8,7 +8,7 @@ import '../css/landing.css';
 
 const Header = ()=> {
     return(
-        <header className="bg-primary">
+        <header className="bg-primary mb-0">
         <Navigation/>
         <Content/>   
         </header>

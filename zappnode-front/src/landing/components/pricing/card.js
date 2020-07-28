@@ -14,8 +14,8 @@ const Card = (props)=> {
     });
 
     return(
-        <div className="bg-secondary lg:w-1/4 md:w-2/3 sm:w-3/3 mx-6 flex justify-center items-center flex-col rounded mb-8 pb-10">
-        <div className="w-full  py-4 bg-green bg-green">
+        <div className="lg:w-1/4 md:w-2/3 sm:w-3/3 mx-6 bgr-white flex justify-center items-center flex-col rounded mb-8 pb-10">
+        <div className="w-full  py-6 bg-green bg-green">
         <h2 className="text-1xl font-semibold text-center">{props.heading}</h2>
         </div>
         <div className="my-8">

@@ -4,7 +4,7 @@ import '../css/landing.css';
 
 const Card = props=> {
     return(
-        <div className="card mx-3 my-3 flex flex-col bg-secondary justify-center rounded text-white mt-16 trans hover:shadow-lg py-10 lg:w-1/4 md:w-3/4 sm:w-full">
+        <div className="card mx-3 my-3 flex flex-col bgr-white justify-center rounded text-white mt-16 trans hover:shadow-lg py-10 lg:w-1/4 md:w-3/4 sm:w-full">
         <div className="img-container mt-6 mx-auto">
         <div className="w-20 h-20 rounded-full bg-primary">{props.icon}</div>
         </div>

@@ -15,6 +15,10 @@
     color: var(--text-color-primary)
 }
 
+.bgr-white{
+    background: white;
+}
+
 .h-full{
     height: 95vh;
 }
@@ -86,4 +90,8 @@
 
 .bg-green{
     background: var(--color-primary);;
+}
+
+.border-top{
+    border-top: 1px solid var(--text-color-primary);
 }

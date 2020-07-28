@@ -1,14 +1,19 @@
 import React, {useState, useEffect} from 'react';
 import Features from './features/features';
 import Pricing from './pricing/pricing';
+import Integration from './integrations/integrate';
+import Contact from './form/contact';
 import './css/tailwind.generated.css';
 import './css/landing.css'
+import Integrate from './integrations/integrate';
 
 const Main = ()=> {
     return(
-        <main className="pt-32">
+        <main>
         <Features/>
         <Pricing/>
+        <Integrate/>
+        <Contact/>
         </main>
     )
 }
