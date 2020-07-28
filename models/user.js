@@ -8,12 +8,12 @@ const User = new Schema({
     password: String,
     googleID: String,
     facebookID: String,
-    admin: Boolean,
-    superAdmin: Boolean,
-    plan: {
-        type: Boolean,
-        default: false
+    role: {
+        type: String,
+        default: 'member',
+        enum: ['admin','superAdmin','member']
     },
+    plan: String,
     memberCount: Number,
     monitors: [Monitor.schema]
 });
