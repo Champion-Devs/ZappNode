@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import '.../tailwind.generated.css';
+import '../css/tailwind.generated.css';
 
-const Navigation = props => {
+const Footer = props => {
     return(
         <>
         </>
     )
 }
 
-export default Contact;
+export default Footer;
