@@ -1,14 +1,12 @@
-const userModel = require('../models/user');
+const monitorModel = require('../models/user');
 
 module.exports = {
-	//updates the user by it's oid, and pulls the monitor from the array by oid
+	//delete a monitor given it's id
 	delete: (req, res) => {
-		const { user_oid, monitor_oid } = req.body;
-		userModel.findOneAndUpdate(
-			{ _id: user_oid },
-			{
-				$pull: { monitors: { _id: monitor_oid } },
-			}
-		);
+		const _id = req.params.id;
+		monitorModel.findByIdAndDelete({ _id: _id }).exec((err, success) => {
+			if (err) throw err;
+			res.json(success);
+		});
 	},
 };
