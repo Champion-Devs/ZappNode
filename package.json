@@ -1,37 +1,37 @@
 {
-  "name": "zappnode",
-  "version": "1.0.0",
-  "description": "Monitoring Websites",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server",
-    "server": "nodemon server",
-    "client": "npm start --prefix zappnode-front",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/aorelhas/ZappNode.git"
-  },
-  "author": "ZappNode",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/aorelhas/ZappNode/issues"
-  },
-  "homepage": "https://github.com/aorelhas/ZappNode#readme",
-  "dependencies": {
-    "bcrypt": "^5.0.0",
-    "config": "^3.3.1",
-    "express": "^4.17.1",
-    "express-validator": "^6.6.0",
-    "mongoose": "^5.9.25",
-    "net": "^1.0.2",
-    "nodemon": "^2.0.4",
-    "passport": "^0.4.1",
-    "passport-google-oauth20": "^2.0.0",
-    "passport-local": "^1.0.0"
-  },
-  "devDependencies": {
-    "concurrently": "^5.2.0"
-  }
+	"name": "zappnode",
+	"version": "1.0.0",
+	"description": "Monitoring Websites",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server",
+		"server": "nodemon server",
+		"client": "npm start --prefix zappnode-front",
+		"dev": "concurrently \"npm run server\" \"npm run client\""
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/aorelhas/ZappNode.git"
+	},
+	"author": "ZappNode",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/aorelhas/ZappNode/issues"
+	},
+	"homepage": "https://github.com/aorelhas/ZappNode#readme",
+	"dependencies": {
+		"bcrypt": "^5.0.0",
+		"config": "^3.3.1",
+		"express": "^4.17.1",
+		"express-validator": "^6.6.0",
+		"mongoose": "^5.9.25",
+		"net": "^1.0.2",
+		"passport": "^0.4.1",
+		"passport-google-oauth20": "^2.0.0",
+		"passport-local": "^1.0.0"
+	},
+	"devDependencies": {
+		"concurrently": "^5.2.0",
+		"nodemon": "^2.0.4"
+	}
 }
