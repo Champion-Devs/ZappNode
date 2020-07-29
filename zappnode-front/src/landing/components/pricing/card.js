@@ -7,9 +7,9 @@ const Card = (props)=> {
     let lists = props.list;
     console.log(lists)
     
-    let li = lists.map(cur => {
+    let li = lists.map((cur, index) => {
         return (
-            <li className="text-gray-600 font-semibold my-3">{cur}</li>
+            <li key={index} className="text-gray-600 font-semibold my-3">{cur}</li>
         )
     });
 
