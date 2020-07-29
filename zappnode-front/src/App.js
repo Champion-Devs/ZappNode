@@ -12,10 +12,10 @@ import Home from './Home';
 function App() {
   return (
     <>
-      {/* <Landing/> */}
-      <Router>
+      <Landing />
+      {/* <Router>
         <Home />
-      </Router>
+      </Router> */}
     </>
   );
 }
