@@ -6,10 +6,10 @@ import Content from './content'
 import '../css/tailwind.generated.css';
 import '../css/landing.css';
 
-const Header = ()=> {
+const Header = (props)=> {
     return(
         <header className="bg-primary mb-0">
-        <Navigation/>
+        <Navigation click={props.click} toogle={props.toogle}/>
         <Content/>   
         </header>
     )
