@@ -7,19 +7,26 @@ const options = {
 };
 
 const MonitorSchema = new Schema({
-    name: { type: String, required: true },
-    interval: Number,
-    userID: Schema.Types.ObjectId
+    title: { type: String, required: true },
+    created_at: { type: Date },
+    active: { type: Boolean },
+    isUp: { type: Boolean },
+    paused: { type: Boolean },
+    totalRequests: { type: Number, default: 0 },
+    lastRequest: { type: Date },
+    totalDownTimes: { type: Number, default: 0 },
+    lastDownTime: { type: Date },
+    interval: { type: Number, default: 5 },
 }, options);
 
 const Monitor = mongoose.model('Monitor', MonitorSchema);
 
-const URLMonitor = Monitor.discriminator('URL', new mongoose.Schema({
+const HTTPMonitor = Monitor.discriminator('URL', new mongoose.Schema({
     url: String
 }, options));
 
 const PortMonitor = Monitor.discriminator('Port', new mongoose.Schema({
-    url: String,
+    host: String,
     port: Number
 }, options));
 
@@ -31,13 +38,13 @@ const KeywordMonitor = Monitor.discriminator('Keyword', new mongoose.Schema({
 }, options));
 
 const PingMonitor = Monitor.discriminator('Ping', new mongoose.Schema({
-    IP: String
+    host: String
 }, options));
 
 module.exports = {
-    URLMonitor: URLMonitor,
+    HTTPMonitor: HTTPMonitor,
     PingMonitor: PingMonitor,
     KeywordMonitor: KeywordMonitor,
     Monitor: Monitor,
-    PortMonitor:PortMonitor
+    PortMonitor: PortMonitor
 };
