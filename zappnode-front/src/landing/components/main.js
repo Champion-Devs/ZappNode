@@ -1,10 +1,15 @@
-const { useState, useEffect } = require("react")
+import React, {useState, useEffect} from 'react';
+import Features from './features/features';
+import Pricing from './pricing/pricing';
+import './css/tailwind.generated.css';
+import './css/landing.css'
 
-import react, {useState, useEffect} from 'react';
-import '.../tailwind.generated.css';
-
-const Contact = props => {
-    return
+const Main = ()=> {
+    return(
+        <main className="pt-32">
+        <Features/>
+        <Pricing/>
+        </main>
+    )
 }
-
-export default Contact;
+export default Main;
