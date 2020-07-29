@@ -103,6 +103,10 @@ body{
 .border-top{
     border-top: 1px solid var(--text-color-primary);
 }
+.pos-abs{
+    position: absolute;
+    right: 0;
+}
 
 @media only screen and (max-width: 640px){
    .d-none{
@@ -112,7 +116,7 @@ body{
 
 @media only screen and (max-width: 768px){
     .width-norm{width: 66.666667%; margin-left: 3rem; margin-right: 3rem;}
-}
+   }
 
 @media only screen and (max-width: 1024px){
     .width-norm{width: 50.666667%;}
@@ -133,4 +137,22 @@ body{
 
 @media only screen and (max-width: 640px){
     .width-norm{width: 100%; margin-left: 3rem; margin-right: 3rem;}
+}
+
+.trans-back {
+    animation: trans-back 7s 1 backwards;
+}
+
+@keyframes trans-back {
+    0% {
+        transform: translateX(0);
+    }
+
+    100%{
+        transform: translateX(70rem);
+    }
+}
+
+.trans-back {
+    transform: translateX(-70rem);
 }
