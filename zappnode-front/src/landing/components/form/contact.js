@@ -4,6 +4,7 @@ import '../css/tailwind.generated.css';
 import '../css/landing.css';
 
 const Contact = props => {
+    // small contact page with link
     return(
         <section className="py-32 bg-primary text-primary flex flex-col justify-center item-center text-center">
         <h1 className="text-5xl font-extrabold">Having issue? contact us soon.</h1>

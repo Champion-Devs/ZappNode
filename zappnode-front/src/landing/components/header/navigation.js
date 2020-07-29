@@ -2,7 +2,28 @@ import React, {useState, useEffect} from 'react';
 import '../css/tailwind.generated.css';
 import '../css/landing.css';
 
+// navigation component 
+// please read and understand the code before making changes
+// the component is build on tailwind css so incase you see wired classes
 const Navigation = props => {
+  let [toggled, setToggle] = useState(false);
+
+  const handleClick = (e) => {
+    if(!toggled){
+      setToggle(true)
+    }else{
+      setToggle(false)
+    }
+
+    console.log(toggled)
+  }
+
+  
+
+  useEffect(()=> {
+    console.log('effect fired')
+  }, [handleClick])
+
     return(
         <>
         <nav className="flex items-center justify-between flex-wrap p-6">
@@ -10,19 +31,23 @@ const Navigation = props => {
     <span className="font-semibold text-xl tracking-tight">ZappNode</span>
   </div>
   <div className="block lg:hidden">
+<<<<<<< HEAD
     <button className="flex items-center px-3 py-2 border rounded text-white border-green-500 hover:text-white hover:border-white">
+=======
+    <button className="flex items-center px-3 py-2 border rounded text-white border-green hover:text-white hover:border-white" onClick={handleClick}>
+>>>>>>> commenting documented code
       <svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
     </button>
   </div>
-  <div className="w-full hidden text-base font-semibold block flex-grow lg:flex lg:items-center lg:w-auto d-none">
+  <div className="w-full hidden text-base font-semibold block flex-grow lg:flex lg:items-center lg:w-auto">
     <div className="text-sm lg:flex-grow">
-      <a href="#responsive-header" className="text-cl-none mr-10 block mt-4 text-base lg:inline-block lg:mt-0  hover:text-white mr-4">
+      <a href="#features" className="text-cl-none mr-10 block mt-4 text-base lg:inline-block lg:mt-0  hover:text-white mr-4">
        Features
       </a>
-      <a href="#responsive-header" className="text-cl-none mr-10 block text-base mt-4 lg:inline-block lg:mt-0 hover:text-white mr-4">
+      <a href="#integration" className="text-cl-none mr-10 block text-base mt-4 lg:inline-block lg:mt-0 hover:text-white mr-4">
         Integration
       </a>
-      <a href="#responsive-header" className="text-cl-none block text-base mt-4 lg:inline-block lg:mt-0 hover:text-white">
+      <a href="#pricing" className="text-cl-none block text-base mt-4 lg:inline-block lg:mt-0 hover:text-white">
         Pricing
       </a>
     </div>

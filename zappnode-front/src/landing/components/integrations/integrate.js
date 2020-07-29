@@ -5,8 +5,10 @@ import '../css/tailwind.generated.css';
 import '../css/landing.css';
 
 let Integrate = ()=> {
+    // integration with default card component
+    // need refactoring
     return(
-        <section className="integrations flex justify-center flex-col bg-secondary py-16">
+        <section id="integration" className="integrations flex justify-center flex-col bg-secondary py-16">
         <h1 className="font-bold text-4xl text-center text-col-secondary text-gray-800">Get Notified with all available integration.</h1>
         <p className="text-center w-2/3 mt-3 mx-auto  font-base font-semibold text-gray-800">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         <div className="cards flex justify-center mt-10 flex-wrap">

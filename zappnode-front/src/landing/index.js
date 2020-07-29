@@ -4,6 +4,7 @@ import Main  from './components/main'
 import Footer from './components/footer/footer'
 
 const Landing = () => {
+    // the component for landing page.
     return(
         <>
         <Header/>

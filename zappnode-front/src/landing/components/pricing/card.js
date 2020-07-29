@@ -4,6 +4,9 @@ import '../css/tailwind.generated.css';
 import '../css/landing.css';
 
 const Card = (props)=> {
+    // card component for pricing page
+    // refactoring needed
+
     let lists = props.list;
     console.log(lists)
     

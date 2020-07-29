@@ -7,6 +7,14 @@
     --color-UI: #E41919;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    scroll-behavior: smooth;
+}
+
 .bg-primary{
     background: var(--bg-primary);
 }

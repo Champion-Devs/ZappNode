@@ -8,6 +8,7 @@ import './css/landing.css'
 import Integrate from './integrations/integrate';
 
 const Main = ()=> {
+    // merging all sections in one component main.
     return(
         <main>
         <Features/>

@@ -5,6 +5,7 @@ import Button from '../button/button';
 import '../css/landing.css';
 
 const ContentR = ()=> {
+    // content page right for the image host
     return (
         <div className="w-1/2 d-none mb-10 lg: mx-0 md: mx-auto sm: mx-auto mt-5">
         <img src={report} alt="report" className="w-full"/>
@@ -13,6 +14,7 @@ const ContentR = ()=> {
 }
 
 const ContentL = ()=> {
+      // content page right for the text
     return (
         <div className="animate__backInDown container sm:w-auto center-text wi-full mt-16 px-5 lg:mr-10 md:mr-0 lg:text-left md:text-center lg:ml-10 md:ml-0 sm:pb-10 lg:pb-0 md:pb-10">
         <h1 className="text-5xl font-extrabold ml-0">SAY NO TO <span className="text-ut">DOWNTIME.</span></h1>
@@ -26,6 +28,7 @@ const ContentL = ()=> {
 }
 
 const Content = ()=> {
+    // merging both component from above
     return(
         <div className="container my-auto pb-16 flex text-primary justify-center lg:mt-10 md:mt-2 lg:flex-row md: flex-col sm: flex-row sm:mx-auto">
         <ContentL/>
