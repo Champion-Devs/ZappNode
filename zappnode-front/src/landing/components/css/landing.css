@@ -97,7 +97,32 @@
 }
 
 @media only screen and (max-width: 640px){
-    .width-full{
-        width: 100%;
+   .d-none{
+       display: none;
+   }
+}
+
+@media only screen and (max-width: 768px){
+    .width-norm{width: 66.666667%; margin-left: 3rem; margin-right: 3rem;}
+}
+
+@media only screen and (max-width: 1024px){
+    .width-norm{width: 50.666667%;}
+    .d-none{
+        display: none;
     }
+
+    .wi-full{
+        width: 100rem;
+        padding-bottom: 5rem;
+    }
+
+    .center-text{
+        text-align: center;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (max-width: 640px){
+    .width-norm{width: 100%; margin-left: 3rem; margin-right: 3rem;}
 }
