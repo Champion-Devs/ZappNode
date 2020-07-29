@@ -8,7 +8,7 @@ import { Dropdown } from 'primereact/dropdown';
 import { ProgressBar } from 'primereact/progressbar';
 import classNames from 'classnames';
 
-function Datatable() {
+function Dashboard() {
   const [trackers, setTrackers] = useState([]);
   const [selectedTrackers, setSelectedTrackers] = useState(null);
   const [globalFilter, setGlobalFilter] = useState(null);
@@ -115,4 +115,4 @@ function Datatable() {
   );
 }
 
-export default Datatable;
+export default Dashboard;
