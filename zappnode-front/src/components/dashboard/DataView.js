@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import 'primeflex/primeflex.css';
 import { Dialog } from 'primereact/dialog';
 import { Panel } from 'primereact/panel';
 import { DataView, DataViewLayoutOptions } from 'primereact/dataview';
@@ -22,6 +21,8 @@ function Dataview() {
       setTrackers(data);
     });
   }, [trackerService]);
+
+  const mean = (arr) => Math.ceil(arr.reduce((x, y) => x + y, 0) / arr.length);
 
   const onSortChange = (event) => {
     const value = event.value;
@@ -48,7 +49,7 @@ function Dataview() {
         <div>
           <div className="bg-gray-100 p-list">
             <div className="p-col-12">
-              <b>{tracker.percentage}</b>
+              Average uptime: <b>{mean(tracker.uptime.data)}%</b>
             </div>
             <div className="p-col-12">
               Name: <b>{tracker.name}</b>
@@ -101,7 +102,7 @@ function Dataview() {
       return (
         <div className="p-grid" style={{ fontSize: '16px', textAlign: 'center', padding: '20px' }}>
           <div className="p-col-4">Percentage: </div>
-          <div className="p-col-8">{selectedTracker.percentage}</div>
+          <div className="p-col-8">{mean(selectedTracker.uptime.data)}%</div>
 
           <div className="p-col-4">Name: </div>
           <div className="p-col-8">{selectedTracker.name}</div>
