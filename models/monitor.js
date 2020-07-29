@@ -9,9 +9,9 @@ const options = {
 const MonitorSchema = new Schema({
     title: { type: String, required: true },
     created_at: { type: Date },
-    active: { type: Boolean },
-    isUp: { type: Boolean },
-    paused: { type: Boolean },
+    active: { type: Boolean, default: true },
+    isUp: { type: Boolean, default: true },
+    paused: { type: Boolean, default: false },
     totalRequests: { type: Number, default: 0 },
     lastRequest: { type: Date },
     totalDownTimes: { type: Number, default: 0 },
