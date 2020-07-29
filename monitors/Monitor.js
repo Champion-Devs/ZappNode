@@ -73,9 +73,9 @@ Monitor.prototype.setProperties = function (opts, state) {
 
   currentState.host = currentState.website || currentState.address;
 
-  //   if (!currentState.created_at) {
-  //     currentState.created_at = Date.now();
-  //   }
+  if (!currentState.created_at) {
+    currentState.created_at = Date.now();
+  }
 
   this.setState(currentState);
 };
@@ -232,6 +232,7 @@ Monitor.prototype.pingTCP = function () {
     tcpMonitor(
       {
         address: this.address,
+        port: this.port,
       },
       (error, data) => {
         if (error) {
