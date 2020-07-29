@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import Card from './card'
 import Button from '../button/button'
 import '../css/tailwind.generated.css';

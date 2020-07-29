@@ -1,29 +1,8 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import '../css/tailwind.generated.css';
 import '../css/landing.css';
 
-// navigation component 
-// please read and understand the code before making changes
-// the component is build on tailwind css so incase you see wired classes
-const Navigation = props => {
-  
-
-  const handleClick = (e) => {
-    e.preventDefault();
-    if(!props.toogle){
-     props.click(true)
-    }else{
-      props.click(false)
-    }
-
-    console.log(props.toogle)
-  }
-
-  
-  useEffect(()=> {
-    console.log('effect fired')
-  }, [handleClick]);
-
+const navigation = ()=> {
     return(
         <nav className="flex items-center justify-between flex-wrap p-6">
   <div className="flex items-center flex-shrink-0 text-white mr-32">
@@ -57,5 +36,3 @@ const Navigation = props => {
 </nav>
     )
 }
-
-export default Navigation;

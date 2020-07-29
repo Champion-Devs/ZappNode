@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import Navigation from './navigation';
 import Report from './imgs/content right.svg'
 import Button from '../button/button';

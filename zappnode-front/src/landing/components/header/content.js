@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import '../css/tailwind.generated.css';
 import report from './imgs/content right.svg';
 import Button from '../button/button';
