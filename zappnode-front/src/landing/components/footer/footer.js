@@ -4,7 +4,7 @@ import '../css/landing.css';
 
 const Footer = props => {
     return(
-        <footer className="border-top py-10 flex justify-between text-primary bg-primary">
+        <footer className="border-top py-10 flex justify-between text-primary bg-secondary text-gray-800 text-base">
         <div className="flex flex-col ml-2">
         <h2 className="text-xl font-bold">Company</h2>
         <p className="mt-2">203 Fake St. Mountain View, San Francisco, California, USA</p>
