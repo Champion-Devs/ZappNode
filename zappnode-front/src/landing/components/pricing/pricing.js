@@ -1,7 +1,5 @@
 import React from 'react';
 import Card from './card';
-import '../css/tailwind.generated.css';
-import '../css/landing.css';
 
 const Pricing = () => {
     // landing page pricing page

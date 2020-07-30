@@ -1,6 +1,4 @@
 import React from 'react';
-import '../css/tailwind.generated.css';
-import '../css/landing.css';
 
 // card component for integration page
 // it need some modification about adding the right icon.

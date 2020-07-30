@@ -1,6 +1,4 @@
-import React, {useState, useEffect} from 'react';
-import '../css/tailwind.generated.css';
-import '../css/landing.css';
+import React from 'react';
 
 const Footer = props => {
     // complete footer page

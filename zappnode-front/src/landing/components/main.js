@@ -3,9 +3,6 @@ import Features from './features/features';
 import Pricing from './pricing/pricing';
 import Contact from './form/contact';
 import Integrate from './integrations/integrate';
-import Navigation from './navigation/navigate'
-import './css/tailwind.generated.css';
-import './css/landing.css'
 
 
 const Main = ()=> {

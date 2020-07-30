@@ -5,19 +5,18 @@ import Main  from './components/main'
 import Footer from './components/footer/footer'
 
 const Landing = () => {
-    let [toogled, setToogle] = useState(true)
+    let [classN, setClassN] = useState('to-back')
     // the component for landing page.
-    let handleToogle = (bool)=> {
-       setToogle(bool)
-    }
 
-    let transBack = 'trans-back';
-    let transFront = 'trans-front';
+   const handleChange = (num)=> {
+        setClassN(num)
+    }
+   
 
     return(
         <>
-        <Navigation cl={transBack} tf={transFront} click={handleToogle}/>
-        <Header click={handleToogle} toogle={toogled} onc/>
+        <Navigation change={handleChange} classNa={classN}/>
+        <Header change={handleChange}/>
         <Main/>
         <Footer/>
         </>

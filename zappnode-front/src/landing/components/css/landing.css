@@ -104,8 +104,17 @@ body{
     border-top: 1px solid var(--text-color-primary);
 }
 .pos-abs{
-    position: absolute;
+    position: fixed;
     right: 0;
+    transition: all .5s;
+}
+
+.to-back{
+    transform: translateX(40rem);
+}
+
+.to-front{
+    transform: translateX(0);
 }
 
 @media only screen and (max-width: 640px){

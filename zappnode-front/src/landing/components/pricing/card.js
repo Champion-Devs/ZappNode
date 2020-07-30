@@ -1,15 +1,11 @@
 import React from 'react';
 import Button from '../button/button';
-import '../css/tailwind.generated.css';
-import '../css/landing.css';
-
 const Card = (props)=> {
     // card component for pricing page
     // refactoring needed
 
     let lists = props.list;
-    console.log(lists)
-    
+     
     let li = lists.map((cur, index) => {
         return (
             <li key={index} className="text-gray-600 font-semibold my-3">{cur}</li>

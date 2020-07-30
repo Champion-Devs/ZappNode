@@ -1,6 +1,4 @@
 import React from 'react';
-import '../css/tailwind.generated.css';
-import '../css/landing.css';
 
 const Card = props=> {
     return(

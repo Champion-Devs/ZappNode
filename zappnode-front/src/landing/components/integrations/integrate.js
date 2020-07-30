@@ -1,8 +1,6 @@
 import React from 'react';
 import Card from './card'
 import Button from '../button/button'
-import '../css/tailwind.generated.css';
-import '../css/landing.css';
 
 let Integrate = ()=> {
     // integration with default card component

@@ -1,8 +1,6 @@
 import React from 'react';
-import '../css/tailwind.generated.css';
 import report from './imgs/content right.svg';
 import Button from '../button/button';
-import '../css/landing.css';
 
 const ContentR = ()=> {
     // content page right for the image host

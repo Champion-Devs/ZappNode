@@ -1,28 +1,16 @@
-import React, {useEffect} from 'react';
-import '../css/tailwind.generated.css';
-import '../css/landing.css';
+import React from 'react';
 
 // navigation component 
 // please read and understand the code before making changes
 // the component is build on tailwind css so incase you see wired classes
 const Navigation = props => {
   
-
   const handleClick = (e) => {
     e.preventDefault();
-    if(!props.toogle){
-     props.click(true)
-    }else{
-      props.click(false)
-    }
 
-    console.log(props.toogle)
+    props.change('to-front')
+
   }
-
-  
-  useEffect(()=> {
-    console.log('effect fired')
-  }, [handleClick]);
 
     return(
         <nav className="flex items-center justify-between flex-wrap p-6">

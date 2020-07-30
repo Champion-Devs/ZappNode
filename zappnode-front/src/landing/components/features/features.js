@@ -1,8 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Card from './card';
 import Button from '../button/button';
-import '../css/tailwind.generated.css';
-import '../css/landing.css';
 
 // feature page for the landing page
 // authored by Champion-devs

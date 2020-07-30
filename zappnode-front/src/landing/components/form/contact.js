@@ -1,7 +1,5 @@
 import React from 'react';
 import Button from '../button/button';
-import '../css/tailwind.generated.css';
-import '../css/landing.css';
 
 const Contact = props => {
     // small contact page with link
