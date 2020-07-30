@@ -28,7 +28,7 @@ user = {
   delete: async () => {}, //placeholder
 };
 
-module.exports.signup = {
+module.exports = {
   monitor,
   user,
 };
