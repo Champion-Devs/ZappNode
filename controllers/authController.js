@@ -47,4 +47,15 @@ module.exports = {
       throw err;
     }
   },
+  logout: async (req, res, next) => {
+    try {
+      req.logout();
+      req.session.destroy();
+      res.status(200);
+      res.redirect('/login');
+      next();
+    } catch (err) {
+      throw err;
+    }
+  },
 };
