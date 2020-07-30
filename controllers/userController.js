@@ -57,7 +57,7 @@ user = {
 
       res.status(200).json({
         status: 'success',
-        message: 'profil updated successfullu',
+        message: 'profil updated successfully',
       });
     } catch (err) {
       res.status(200).json({
