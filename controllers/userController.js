@@ -1,4 +1,5 @@
 const userModel = require('../models/user');
+const bcrypt = require('bcrypt');
 
 //use these for operations related to user subscriptions
 monitor = {
@@ -24,7 +25,19 @@ monitor = {
 user = {
   create: async () => {}, //placeholder
   read: async () => {}, //palceholder
-  update: async () => {}, //placeholder
+  update: async (req, res) => {
+    // get the current user
+    const user = req.user;
+    // get the data the user want to update
+    const data = {};
+    const { name, email, password } = req.body;
+    Object.keys(req.body).forEach((cur) => {
+      if (cur === 'password') {
+        console.log(cur);
+      }
+    });
+    // update
+  },
   delete: async () => {}, //placeholder
 };
 
