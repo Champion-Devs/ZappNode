@@ -6,7 +6,7 @@ module.exports = function (options, callback) {
   let socket = new net.Socket();
   let startTime = process.hrtime();
 
-  socket.connect(options.address, function () {
+  socket.connect(options.port, options.address, function () {
     let diff = process.hrtime(startTime);
     let responseTime = utils.nanoToMilliseconds(diff[0] * NS_PER_SEC + diff[1]);
 

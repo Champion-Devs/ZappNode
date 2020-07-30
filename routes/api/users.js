@@ -14,6 +14,6 @@ router.delete('/monitor', userController.monitor.delete);
 
 router.post('/', userController.user.create); //placeholder
 router.get('/', userController.user.read); //placeholder
-router.put('/', userController.user.update); //placeholder
+router.patch('/', userController.user.update); //placeholder
 router.delete('/', userController.user.delete); //placeholder
 module.exports = router;
