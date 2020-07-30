@@ -52,7 +52,7 @@ module.exports = {
       req.logout();
       req.session.destroy();
       res.status(200);
-      res.redirect('/login');
+      res.redirect('local');
       next();
     } catch (err) {
       throw err;
