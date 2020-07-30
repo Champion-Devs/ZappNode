@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+        "percentage": 100,
+        "name": "CNN",
+        "type": "http"
+    },
+    {
+        "percentage": 50,
+        "name": "VG247",
+        "type": "http"
+    },
+    {
+        "percentage": 100,
+        "name": "goal.com",
+        "type": "http"
+    }
+  ]
+}
