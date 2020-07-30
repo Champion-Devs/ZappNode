@@ -53,6 +53,12 @@ body{
     color: var(--color-UI);
 }
 
+.pos-fixed{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
 .btn-secondary{
     color: var(--color-primary);
     background: var(--color-secondary);

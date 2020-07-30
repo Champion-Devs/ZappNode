@@ -1,4 +1,6 @@
 import React from 'react';
+import '../css/landing.css'
+
 
 // navigation component 
 // please read and understand the code before making changes
@@ -13,7 +15,7 @@ const Navigation = props => {
   }
 
     return(
-        <nav className="flex items-center justify-between flex-wrap p-6">
+        <nav className="flex items-center justify-between flex-wrap p-6 pos-fixed z-10 bg-primary">
   <div className="flex items-center flex-shrink-0 text-white mr-32">
     <span className="font-semibold text-xl tracking-tight">ZappNode</span>
   </div>

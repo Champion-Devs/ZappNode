@@ -11,7 +11,7 @@ const Navigation = (props)=> {
     }
  
     return(
-    <nav className={`${props.classNa} block items-center justify-between py-10 bg-primary px-10 w-auto d-none pos-abs shadow-lg rounded`}>
+    <nav className={`${props.classNa} z-20 block items-center justify-between py-10 bg-primary px-10 w-auto d-none pos-abs shadow-lg rounded`}>
   <div className="flex justify-between">
   <div className="flex items-center flex-shrink-0 text-white mr-32">
 

@@ -1,8 +1,22 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Button from '../button/button';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 const Card = (props)=> {
     // card component for pricing page
     // refactoring needed
+
+    useEffect(()=>{
+        AOS.init()
+        
+        AOS.init({
+            duration: 2000,
+            delay: 0
+        })
+
+    }, [])
+
 
     let lists = props.list;
      
@@ -13,7 +27,7 @@ const Card = (props)=> {
     });
 
     return(
-        <div className="lg:w-1/4 width-norm mx-6 bgr-white flex justify-center items-center flex-col rounded mb-8 pb-10">
+        <div data-aos="zoom-out-up" className="lg:w-1/4 width-norm mx-6 bgr-white flex justify-center items-center flex-col rounded mb-8 pb-10">
         <div className="w-full  py-6 bg-green bg-green">
         <h2 className="text-1xl font-semibold text-center">{props.heading}</h2>
         </div>
