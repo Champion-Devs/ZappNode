@@ -1,4 +1,4 @@
-const userModel = require('../models/user');
+const User = require('../models/user');
 const bcrypt = require('bcrypt');
 
 //use these for operations related to user subscriptions
@@ -9,7 +9,7 @@ monitor = {
   delete: async (req, res) => {
     try {
       const { user_id, monitor_id } = req.body;
-      userModel.findOneAndUpdate(
+      User.findOneAndUpdate(
         { _id: user_id },
         { $pull: { monitors: { _id: monitor_id } } }.exec((err, success) => {
           if (err) throw err;
@@ -26,17 +26,45 @@ user = {
   create: async () => {}, //placeholder
   read: async () => {}, //palceholder
   update: async (req, res) => {
-    // get the current user
-    const user = req.user;
-    // get the data the user want to update
-    const data = {};
-    const { name, email, password } = req.body;
-    Object.keys(req.body).forEach((cur) => {
-      if (cur === 'password') {
-        console.log(cur);
+    try {
+      const user = req.user;
+      // get the data the user want to update
+      const data = {};
+      Object.keys(req.body).forEach((cur) => {
+        if (cur === 'password' || cur === 'name' || cur === 'email') {
+          data[cur] = req.body[cur];
+        }
+      });
+
+      //check if the new email exist in the db
+      let result;
+      if (data.email) {
+        result = await User.findOne({ email: data.email });
+        if (result) throw 'Email already exist';
       }
-    });
-    // update
+
+      //hash the password
+      let hashedPassword;
+      if (data.password) {
+        hashedPassword = await bcrypt.hash(data.password, 12);
+        data.password = hashedPassword;
+      }
+      // update
+      await User.findByIdAndUpdate(user._id, data, { runValidators: true });
+
+      //if password changed => logout
+      if (data.password) return res.redirect('auth/logout');
+
+      res.status(200).json({
+        status: 'success',
+        message: 'profil updated successfullu',
+      });
+    } catch (err) {
+      res.status(200).json({
+        status: 'fail',
+        message: err,
+      });
+    }
   },
   delete: async () => {}, //placeholder
 };

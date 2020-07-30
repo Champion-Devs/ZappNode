@@ -1,6 +1,5 @@
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const LocalStrategy = require('passport-local').Strategy;
-const mongoose = require('mongoose');
 const keys = require('./keys');
 const userModel = require('../models/user');
 const bcrypt = require('bcrypt');
@@ -36,7 +35,6 @@ module.exports = function (passport) {
             return done(err);
           }
           if (!user) {
-            console.log('inccorect un');
             return done(null, false, { message: 'Incorrect Username' });
           }
           if (user) {

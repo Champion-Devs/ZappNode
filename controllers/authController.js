@@ -47,7 +47,7 @@ module.exports = {
       throw err;
     }
   },
-  logout: async (req, res, next) => {
+  logout: async (req, res) => {
     try {
       req.logout();
       req.session.destroy();
@@ -55,7 +55,6 @@ module.exports = {
         status: 'success',
         message: 'logged out successffully',
       });
-      next();
     } catch (err) {
       throw err;
     }
