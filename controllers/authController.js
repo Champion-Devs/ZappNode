@@ -51,8 +51,10 @@ module.exports = {
     try {
       req.logout();
       req.session.destroy();
-      res.status(200);
-      res.redirect('local');
+      res.status(200).json({
+        status: 'success',
+        message: 'logged out successffully',
+      });
       next();
     } catch (err) {
       throw err;
