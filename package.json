@@ -23,6 +23,7 @@
     "bcrypt": "^5.0.0",
     "config": "^3.3.1",
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
     "express-validator": "^6.6.0",
     "mongoose": "^5.9.25",
     "net": "^1.0.2",

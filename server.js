@@ -1,11 +1,17 @@
+//imports--------------------------------------------
 const express = require('express');
 const connectDB = require('./config/db');
 const passport = require('passport');
+const session = require('express-session');
 
+//initialization-------------------------------------
 const app = express();
+
+app.use(session({ secret: 'secretKey', resave: false, saveUninitialized: false }));
 
 // Passport Config
 app.use(passport.initialize());
+app.use(passport.session());
 require('./config/passport')(passport);
 
 // Connect MongoDB
