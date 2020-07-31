@@ -68,7 +68,7 @@ user = {
   },
   delete: async (req, res) => {
     try {
-      User.findOneAndDelete({ _id: req.body.user_id }, (err) => {
+      User.findOneAndDelete({ _id: req.user._id }, (err) => {
         if (err) throw err;
         res.redirect('auth/logout');
       });
