@@ -25,7 +25,16 @@ user = {
   create: async () => {}, //placeholder
   read: async () => {}, //palceholder
   update: async () => {}, //placeholder
-  delete: async () => {}, //placeholder
+  delete: async (req, res) => {
+    try {
+      User.findOneAndDelete({ _id: req.body.user_id }, (err) => {
+        if (err) throw err;
+        res.redirect('/logout');
+      });
+    } catch (error) {
+      throw err;
+    }
+  },
 };
 
 module.exports = {

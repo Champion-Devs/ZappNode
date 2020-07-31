@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../../controllers/userController.js');
+const authController = require('../../controllers/authController.js');
 
 //monitors-- user for operations related to user subscriptions------
 
@@ -15,5 +16,5 @@ router.delete('/monitor', userController.monitor.delete);
 router.post('/', userController.user.create); //placeholder
 router.get('/', userController.user.read); //placeholder
 router.patch('/', userController.user.update); //placeholder
-router.delete('/', userController.user.delete); //placeholder
+router.delete('/', authController.isLoggedIn, userController.user.delete, authController.logout); //placeholder
 module.exports = router;
