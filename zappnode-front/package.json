@@ -6,7 +6,13 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+<<<<<<< HEAD
     "chart.js": "^2.9.3",
+=======
+    "animate.css": "^4.1.0",
+    "animate.css-react": "^1.0.0",
+    "aos": "^2.3.4",
+>>>>>>> e87d441e8eaa55becab1b37fdd3b3bc6fb8b05ff
     "classnames": "^2.2.6",
     "primeflex": "^2.0.0-rc.1",
     "primeicons": "^4.0.0",

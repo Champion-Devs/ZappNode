@@ -1,14 +1,18 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import Features from './features/features';
 import Pricing from './pricing/pricing';
-import './css/tailwind.generated.css';
-import './css/landing.css'
+import Contact from './form/contact';
+import Integrate from './integrations/integrate';
+
 
 const Main = ()=> {
+    // merging all sections in one component main.
     return(
-        <main className="pt-32">
+        <main>
         <Features/>
         <Pricing/>
+        <Integrate/>
+        <Contact/>
         </main>
     )
 }

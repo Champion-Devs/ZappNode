@@ -7,12 +7,24 @@
     --color-UI: #E41919;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    scroll-behavior: smooth;
+}
+
 .bg-primary{
     background: var(--bg-primary);
 }
 
 .text-primary{
     color: var(--text-color-primary)
+}
+
+.bgr-white{
+    background: white;
 }
 
 .h-full{
@@ -39,6 +51,12 @@
 
 .text-ut{
     color: var(--color-UI);
+}
+
+.pos-fixed{
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
 .btn-secondary{
@@ -86,4 +104,70 @@
 
 .bg-green{
     background: var(--color-primary);;
+}
+
+.border-top{
+    border-top: 1px solid var(--text-color-primary);
+}
+.pos-abs{
+    position: fixed;
+    right: 0;
+    transition: all .5s;
+}
+
+.to-back{
+    transform: translateX(40rem);
+}
+
+.to-front{
+    transform: translateX(0);
+}
+
+@media only screen and (max-width: 640px){
+   .d-none{
+       display: none;
+   }
+}
+
+@media only screen and (max-width: 768px){
+    .width-norm{width: 66.666667%; margin-left: 3rem; margin-right: 3rem;}
+   }
+
+@media only screen and (max-width: 1024px){
+    .width-norm{width: 50.666667%;}
+    .d-none{
+        display: none;
+    }
+
+    .wi-full{
+        width: 100rem;
+        padding-bottom: 5rem;
+    }
+
+    .center-text{
+        text-align: center;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (max-width: 640px){
+    .width-norm{width: 100%; margin-left: 3rem; margin-right: 3rem;}
+}
+
+.trans-back {
+    animation: trans-back 7s 1 backwards;
+}
+
+@keyframes trans-back {
+    0% {
+        transform: translateX(0);
+    }
+
+    100%{
+        transform: translateX(70rem);
+    }
+}
+
+.trans-back {
+    transform: translateX(-70rem);
 }
