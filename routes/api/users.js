@@ -16,5 +16,5 @@ router.delete('/monitor', userController.monitor.delete);
 router.post('/', userController.user.create); //placeholder
 router.get('/', userController.user.read); //placeholder
 router.patch('/', authController.isLoggedIn, userController.user.update);
-router.delete('/', userController.user.delete); //placeholder
+router.delete('/', authController.isLoggedIn, userController.user.delete);
 module.exports = router;
