@@ -12,7 +12,7 @@ function Dashboard() {
       <div className="mt-12 p-5">
         <DataTable />
       </div>
-      <div className="mt-12">
+      <div className="mt-12 p-5">
         <BarChart />
       </div>
     </>
