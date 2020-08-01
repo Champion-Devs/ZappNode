@@ -6,7 +6,7 @@ import BarChart from '../components/dashboard/BarChart';
 function Dashboard() {
   return (
     <>
-      <div>
+      <div className="mt-6 p-5">
         <DataView />
       </div>
       <div className="mt-12">
