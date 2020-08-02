@@ -1,29 +1,36 @@
-//imports--------------------------------------------
+//imports---------------------------------------------------------------
 const express = require('express');
 const connectDB = require('./config/db');
 const passport = require('passport');
 const session = require('express-session');
-
-//initialization-------------------------------------
+const { accessLog } = require('./config/logConfig');
+//initialization---------------------------------------------------------
 const app = express();
 
+//sessions--------------------------------------------------------------
 app.use(session({ secret: 'secretKey', resave: false, saveUninitialized: false }));
 
-// Passport Config
+// Passport Config------------------------------------------------------
 app.use(passport.initialize());
 app.use(passport.session());
 require('./config/passport')(passport);
-
 // Connect MongoDB
 connectDB();
 
-// Initialize MiddleWare
+// Initialize MiddleWare------------------------------------------------
+
+//data processing
 app.use(express.json({ extentend: false }));
 app.use(express.urlencoded({ extended: true }));
+//server/application logs
+app.use(accessLog());
 
+app.use(() => {
+  console.log('test');
+});
 app.get('/', (req, res) => res.send('API Running..'));
 
-// Define Routes
+// Define Routes----------------------------------------------------------
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/auth', require('./routes/api/auth'));
 
