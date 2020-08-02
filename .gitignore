@@ -1,4 +1,6 @@
 node_modules
 config/default.json
+config/keys.js
+logs/*
 /.idea/
 .vscode
