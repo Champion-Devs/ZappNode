@@ -3,7 +3,7 @@ const express = require('express');
 const connectDB = require('./config/db');
 const passport = require('passport');
 const session = require('express-session');
-const { accessLog } = require('./config/logConfig');
+const { accessLog, errorLog } = require('./config/logConfig');
 //initialization---------------------------------------------------------
 const app = express();
 
@@ -24,10 +24,8 @@ app.use(express.json({ extentend: false }));
 app.use(express.urlencoded({ extended: true }));
 //server/application logs
 app.use(accessLog());
+app.use(errorLog());
 
-app.use(() => {
-  console.log('test');
-});
 app.get('/', (req, res) => res.send('API Running..'));
 
 // Define Routes----------------------------------------------------------
