@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import DataTable from '../components/dashboard/DataTable';
 import DataView from '../components/dashboard/DataView';
 import BarChart from '../components/dashboard/BarChart';

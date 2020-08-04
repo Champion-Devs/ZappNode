@@ -1,11 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import Card from './card';
 import Button from '../button/button';
 
 // feature page for the landing page
 // authored by Champion-devs
 
-const Features = props => {
+const Features = () => {
     return(
         <section id="features" className="flex justify-center features flex-col py-16 mt-0">
         <h1 className="font-bold text-4xl text-center text-col-secondary text-gray-800">Get all the benefit using ZappNode.</h1>
