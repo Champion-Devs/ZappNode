@@ -27,8 +27,8 @@ const ContentL = ()=> {
         <h1 className="text-5xl font-extrabold ml-0">SAY NO TO <span className="text-ut">DOWNTIME.</span></h1>
         <p className="text-base font-semibold mt-5 w-2/3 lg:mx-0 md: mx-auto sm:text-center lg:text-left md:text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Laoreet sagittis arcu, nascetur vel, eget posuere nulla consequat. Et lobortis lectus elementum ridiculus in nam eu morbi.</p>
         <div className="text-center flex items-center mt-12 lg:justify-start md:justify-center sm: justify-center">
-          <Button content="Demo" styles="trans bg-transparent hover:bg-white hover:border-white hover:text-green-500 border text-white py-3 px-5 w-32 rounded font-semibold mr-10" link="#register"/>
-          <Button content="Register" styles="trans btn-primary text-primary px-8 py-3 rounded font-semibold border border-green-500 w-32 hover:bg-transparent hover:text-white" link="#register"/>
+          <Button content="Demo" styles="trans tracking-wider bg-transparent hover:bg-white hover:border-white hover:text-green-500 border text-white py-3 px-5 w-32 rounded font-semibold mr-10" link="#register"/>
+          <Button content="Register" styles="trans tracking-wider btn-primary text-primary px-8 py-3 rounded font-semibold border border-green-500 w-32 hover:bg-transparent hover:text-white" link="#register"/>
         </div>
         </div>
     )
