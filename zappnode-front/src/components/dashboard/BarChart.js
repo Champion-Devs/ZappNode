@@ -9,7 +9,7 @@ function BarChart() {
     trackerService.getTrackerData().then((data) => {
       setUptimeData(data);
     });
-  });
+  }, []);
   let chartContent;
   if (uptimeData.length > 0) {
     let chartData = {
