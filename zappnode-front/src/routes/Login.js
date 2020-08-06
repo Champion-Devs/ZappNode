@@ -16,18 +16,30 @@ function Login() {
             <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
               Username
             </label>
-            <input class="trans appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-green-500" id="username" type="text" value={credentials.username} />
+            <input
+              class="trans appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-green-500"
+              id="username"
+              type="text"
+              value={credentials.username}
+              onChange={e => setCredentials({ username: e.target.value, password: credentials.password })}
+            />
           </div>
           <div class="mb-3">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
               Password
             </label>
-            <input class="trans appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:border-green-500" id="password" type="password" value={credentials.password}/>
+            <input
+              class="trans appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:border-green-500"
+              id="password"
+              type="password"
+              value={credentials.password}
+              onChange={e => setCredentials({ username: credentials.username, password: e.target.value })}
+            />
           </div>
           <div class="flex items-center justify-between mb-12">
-            <button class="trans border border-green bg-green-500 hover:bg-white hover:text-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+            <Link class="trans border border-green bg-green-500 hover:bg-white hover:text-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
               Login
-            </button>
+            </Link>
             <a class="trans inline-block align-baseline font-bold text-sm text-green-500 hover:text-green-400" href="#">
               Forgot Password?
             </a>
@@ -35,7 +47,7 @@ function Login() {
           <div>
             <Link to="/api/auth/google" className="trans align-middle tracking-wide flex w-full border border-gray-300 rounded hover:border-green-500 shadow">
               <img src={GoogleIcon} className="block" />
-              <span className="w-full py-3 inline-block align-center font-bold text-gray-700 pr-2">
+              <span className="w-full flex items-center font-bold text-gray-700">
                 Sign in with Google
               </span>
             </Link>
