@@ -1,19 +1,79 @@
 {
   "data": [
     {
-        "percentage": 100,
-        "name": "CNN",
-        "type": "http"
+      "percentage": 100,
+      "uptime": {
+        "data": [
+          65,
+          59,
+          80,
+          81,
+          56,
+          55,
+          40
+        ],
+        "timestamps": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ]
+      },
+      "name": "CNN",
+      "type": "http"
     },
     {
-        "percentage": 50,
-        "name": "VG247",
-        "type": "http"
+      "percentage": 50,
+      "uptime": {
+        "data": [
+          28,
+          48,
+          40,
+          19,
+          86,
+          27,
+          90
+        ],
+        "timestamps": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ]
+      },
+      "name": "VG247",
+      "type": "http"
     },
     {
-        "percentage": 100,
-        "name": "goal.com",
-        "type": "http"
+      "percentage": 100,
+      "uptime": {
+        "data": [
+          28,
+          48,
+          30,
+          96,
+          86,
+          75,
+          90
+        ],
+        "timestamps": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ]
+      },
+      "name": "goal.com",
+      "type": "http"
     }
   ]
 }
