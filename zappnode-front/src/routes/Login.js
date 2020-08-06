@@ -13,7 +13,7 @@ function Login() {
         <form className="bg-white max-w-xs w-full rounded px-8 pt-6 pb-8 mb-4" action="">
           <h1 className="font-bold text-xl mb-6">Login</h1>
           <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+            <label class="block text-gray-700 text-sm font-bold" for="username">
               Username
             </label>
             <input
@@ -25,7 +25,7 @@ function Login() {
             />
           </div>
           <div class="mb-3">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+            <label class="block text-gray-700 text-sm font-bold" for="password">
               Password
             </label>
             <input
