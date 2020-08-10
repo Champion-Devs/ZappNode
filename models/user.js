@@ -15,7 +15,7 @@ const User = new Schema({
     enum: ['admin', 'superAdmin', 'member'],
   },
   plan: String,
-  memberCount: Number,
+  members: Array,
   monitors: [Monitor.schema],
 });
 
