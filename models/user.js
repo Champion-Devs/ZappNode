@@ -11,8 +11,8 @@ const User = new Schema({
   facebookID: String,
   role: {
     type: String,
-    default: 'member',
-    enum: ['admin', 'superAdmin', 'member'],
+    default: 'user',
+    enum: ['admin', 'superAdmin', 'user'],
   },
   plan: String,
   members: Array,
