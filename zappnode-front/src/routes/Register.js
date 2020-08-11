@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import GoogleIcon from '../assets/imgs/btn_google_light.svg';
+import FacebookIcon from '../assets/imgs/btn_facebook.svg';
 
 function Register() {
   const [username, setUsername] = useState("");
@@ -67,10 +68,18 @@ function Register() {
             </Link>
           </div>
           <div>
-            <Link to="/api/auth/google" className="trans align-middle tracking-wide flex w-full border border-gray-300 rounded hover:border-green-500 shadow">
-              <img src={GoogleIcon} className="block" />
+            <Link to="/api/auth/google" className="trans align-middle tracking-wide flex w-full border border-gray-300 rounded shadow">
+              <img src={GoogleIcon} className="block p-2" />
               <span className="w-full flex items-center font-bold text-gray-700">
                 Sign in with Google
+              </span>
+            </Link>
+          </div>
+          <div className="mt-3">
+            <Link to="/api/auth/facebook" className="trans align-middle bg-blue-600 tracking-wide flex w-full border border-blue-600 rounded shadow">
+              <img src={FacebookIcon} className="block p-2" />
+              <span className="w-full flex items-center font-bold text-white">
+                Log in with Facebook
               </span>
             </Link>
           </div>
