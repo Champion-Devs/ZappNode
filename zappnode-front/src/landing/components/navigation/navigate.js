@@ -35,7 +35,7 @@ const Navigation = (props)=> {
     </div>
     <div className="flex justify-between">
     <div className="mr-10">
-      <a href="#" className="trans inline-block  px-5 py-3 text-base leading-none border rounded text-white border-white hover:border-transparent text-trans hover:bg-primary hover:bg-white mt-4 lg:mt-0">Login</a>
+      <a href="#" className="trans inline-block px-5 py-3 text-base leading-none border rounded text-white border-white hover:border-transparent text-trans hover:bg-primary hover:bg-white mt-4 lg:mt-0">Login</a>
     </div>
 
     <div>

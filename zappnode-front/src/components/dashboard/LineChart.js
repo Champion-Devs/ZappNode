@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Chart } from 'primereact/chart';
 import { TrackerService } from '../../service/TrackerService';
 
-function BarChart() {
+function LineChart() {
   const chartColors = ["#38C172", "#D17A30", "#3468D9"]
   const [uptimeData, setUptimeData] = useState([]);
   const trackerService = new TrackerService();
@@ -20,21 +20,22 @@ function BarChart() {
     uptimeData.forEach((elem, i) => {
       let dataset = {
         label: elem.name,
-        backgroundColor: chartColors[i],
+        backgroundColor: 'transparent',
+        borderColor: chartColors[i],
         data: elem.uptime.data,
       };
       chartData.datasets.push(dataset);
     });
-    chartContent = <Chart type="bar" data={chartData} />;
+    chartContent = <Chart type="line" data={chartData} />;
   } else {
     chartContent = <div>No data available.</div>;
   }
   return (
     <div>
-      <h3 className="font-bold text-2xl">Barchart</h3>
+      <h3 className="font-bold text-2xl">Line chart</h3>
       {chartContent}
     </div>
   );
 }
 
-export default BarChart;
+export default LineChart;
