@@ -13,7 +13,9 @@ function Register() {
     <React.Fragment>
       <div className="flex justify-center mt-10">
         <form className="bg-white max-w-xs w-full rounded px-8 pt-6 pb-8 mb-4" action="">
-          <h1 className="font-bold text-xl mb-6">Register</h1>
+          <h1 className="font-bold text-xl mb-6">
+            Create an account
+          </h1>
           <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold" for="username">
               Username
