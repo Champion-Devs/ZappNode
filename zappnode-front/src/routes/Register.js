@@ -11,8 +11,26 @@ function Register() {
 
   // Send reg request
   // if success, then redirect to dashboard
-  const register = async () => {
-    console.log("reg")
+  const register = (e) => {
+    e.preventDefault();
+    // check if username || email || password
+    const data = {
+      name: username,
+      email: email,
+      password: password
+    }
+    fetch(
+      "/api/auth/signUp",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      }
+    ).then(res => {
+      console.log(res)
+    });
   };
 
   return (
@@ -23,7 +41,7 @@ function Register() {
             Create an account
           </h1>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold" for="username">
+            <label className="block text-gray-700 text-sm font-bold">
               Username
             </label>
             <input
@@ -35,7 +53,7 @@ function Register() {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold" for="email">
+            <label className="block text-gray-700 text-sm font-bold">
               Email address
             </label>
             <input
@@ -47,7 +65,7 @@ function Register() {
             />
           </div>
           <div className="mb-1">
-            <label className="block text-gray-700 text-sm font-bold" for="password">
+            <label className="block text-gray-700 text-sm font-bold">
               Choose a password
             </label>
             <input
@@ -58,21 +76,22 @@ function Register() {
               onChange={e => setPassword(e.target.value)}
             />
           </div>
-          <div className="mb-3">
-            <label className="block text-gray-700 text-sm font-bold" for="passwordCheck">
+          <div className="mb-8">
+            <label className="block text-gray-700 text-sm font-bold">
               Please enter your password again
             </label>
             <input
-              className="trans appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:border-green-500"
+              className="trans appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-green-500"
               id="password"
               type="password"
               value={passwordCheck}
               onChange={e => setPasswordCheck(e.target.value)}
             />
+            <span className="italic text-xs text-red-500">* Passwords do not match</span>
           </div>
           <div className="flex items-center justify-between mb-12">
             <button
-              className="w-full text-center trans border border-green bg-green-500 hover:bg-white hover:text-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="w-full text-center trans border border-green bg-green-500 hover:bg-white hover:text-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none"
               onClick={register}
             >
               Register
