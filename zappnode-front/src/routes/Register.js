@@ -9,6 +9,12 @@ function Register() {
   const [password, setPassword] = useState("");
   const [passwordCheck, setPasswordCheck] = useState("");
 
+  // Send reg request
+  // if success, then redirect to dashboard
+  const register = async () => {
+    console.log("reg")
+  };
+
   return (
     <React.Fragment>
       <div className="flex justify-center mt-10">
@@ -16,58 +22,61 @@ function Register() {
           <h1 className="font-bold text-xl mb-6">
             Create an account
           </h1>
-          <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold" for="username">
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold" for="username">
               Username
             </label>
             <input
-              class="trans appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-green-500"
+              className="trans appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-green-500"
               id="username"
               type="text"
               value={username}
               onChange={e => setUsername(e.target.value)}
             />
           </div>
-          <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold" for="email">
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold" for="email">
               Email address
             </label>
             <input
-              class="trans appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-green-500"
+              className="trans appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-green-500"
               id="email"
               type="text"
               value={email}
               onChange={e => setEmail(e.target.value)}
             />
           </div>
-          <div class="mb-1">
-            <label class="block text-gray-700 text-sm font-bold" for="password">
+          <div className="mb-1">
+            <label className="block text-gray-700 text-sm font-bold" for="password">
               Choose a password
             </label>
             <input
-              class="trans appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:border-green-500"
+              className="trans appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:border-green-500"
               id="passwordCheck"
               type="password"
               value={password}
               onChange={e => setPassword(e.target.value)}
             />
           </div>
-          <div class="mb-3">
-            <label class="block text-gray-700 text-sm font-bold" for="passwordCheck">
+          <div className="mb-3">
+            <label className="block text-gray-700 text-sm font-bold" for="passwordCheck">
               Please enter your password again
             </label>
             <input
-              class="trans appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:border-green-500"
+              className="trans appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:border-green-500"
               id="password"
               type="password"
               value={passwordCheck}
               onChange={e => setPasswordCheck(e.target.value)}
             />
           </div>
-          <div class="flex items-center justify-between mb-12">
-            <Link class="w-full text-center trans border border-green bg-green-500 hover:bg-white hover:text-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+          <div className="flex items-center justify-between mb-12">
+            <button
+              className="w-full text-center trans border border-green bg-green-500 hover:bg-white hover:text-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              onClick={register}
+            >
               Register
-            </Link>
+            </button>
           </div>
           <div>
             <Link to="/api/auth/google" className="trans align-middle tracking-wide flex w-full border border-gray-300 rounded shadow">

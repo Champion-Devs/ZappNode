@@ -13,35 +13,35 @@ function Login() {
       <div className="flex justify-center mt-10">
         <form className="bg-white max-w-xs w-full rounded px-8 pt-6 pb-8 mb-4" action="">
           <h1 className="font-bold text-xl mb-6">Login</h1>
-          <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold" for="username">
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold" for="username">
               Username
             </label>
             <input
-              class="trans appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-green-500"
+              className="trans appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-green-500"
               id="username"
               type="text"
               value={credentials.username}
               onChange={e => setCredentials({ username: e.target.value, password: credentials.password })}
             />
           </div>
-          <div class="mb-3">
-            <label class="block text-gray-700 text-sm font-bold" for="password">
+          <div className="mb-3">
+            <label className="block text-gray-700 text-sm font-bold" for="password">
               Password
             </label>
             <input
-              class="trans appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:border-green-500"
+              className="trans appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:border-green-500"
               id="password"
               type="password"
               value={credentials.password}
               onChange={e => setCredentials({ username: credentials.username, password: e.target.value })}
             />
           </div>
-          <div class="flex items-center justify-between mb-12">
-            <Link class="trans border border-green bg-green-500 hover:bg-white hover:text-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+          <div className="flex items-center justify-between mb-12">
+            <Link className="trans border border-green bg-green-500 hover:bg-white hover:text-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
               Login
             </Link>
-            <a class="trans inline-block align-baseline font-bold text-sm text-green-500 hover:text-green-400" href="#">
+            <a className="trans inline-block align-baseline font-bold text-sm text-green-500 hover:text-green-400" href="#">
               Forgot Password?
             </a>
           </div>
