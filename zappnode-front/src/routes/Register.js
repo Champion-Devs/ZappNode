@@ -11,7 +11,7 @@ function Register() {
 
   // warnings for invalid inputs
   const [emailWarning, setEmailWarning] = useState(" ");
-  const [passwordWarning, setPasswordWarning] = useState(" ");
+  const [passwordWarning, setPasswordWarning] = useState(<ul></ul>)
 
   const validEmailAdress = () => {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -19,7 +19,7 @@ function Register() {
   };
 
   const validPassword = () => {
-    const re = /^[a-zA-Z]\w{7,19}$/;
+    const re = /^([a-zA-Z0-9!@#$%^&*]{8,15})$/;
     var valid = re.test(password);
     if (!valid) return false;
     if (password === passwordCheck) return true;
@@ -32,7 +32,16 @@ function Register() {
     if (!validEmailAdress()) {
       setEmailWarning("* Not a valid email address");
     } else if (!validPassword()) {
-      setPasswordWarning("* Invalid password \n aasd")
+      setPasswordWarning(
+        <ul>
+          <li>Valid password characters:</li>
+          <li>- upper and lowercase letters</li>
+          <li>- numbers</li>
+          <li>- special characters: !, @, #, $, %, ^, &, *</li>
+          <li>Password must be between 8-15 characters long.</li>
+          <li>Passwords must match</li>
+        </ul>
+      )
     } else {
 
       const data = {
@@ -104,7 +113,7 @@ function Register() {
               value={password}
               onChange={e => {
                 setPassword(e.target.value)
-                setPasswordWarning("")
+                setPasswordWarning(<ul></ul>)
               }}
             />
           </div>
@@ -119,7 +128,7 @@ function Register() {
               value={passwordCheck}
               onChange={e => {
                 setPasswordCheck(e.target.value)
-                setPasswordWarning("")
+                setPasswordWarning(<ul></ul>)
               }}
             />
             <span className="italic text-xs text-red-500">
