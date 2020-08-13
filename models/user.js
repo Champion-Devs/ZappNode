@@ -11,11 +11,11 @@ const User = new Schema({
   facebookID: String,
   role: {
     type: String,
-    default: 'member',
-    enum: ['admin', 'superAdmin', 'member'],
+    default: 'user',
+    enum: ['admin', 'superAdmin', 'user'],
   },
   plan: String,
-  memberCount: Number,
+  members: Array,
   monitors: [Monitor.schema],
 });
 

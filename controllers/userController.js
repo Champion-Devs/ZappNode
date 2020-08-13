@@ -2,7 +2,7 @@ const User = require('../models/user');
 const bcrypt = require('bcrypt');
 
 //use these for operations related to user subscriptions
-monitor = {
+const monitor = {
   create: async () => {},
   read: async () => {},
   update: async () => {},
@@ -21,8 +21,21 @@ monitor = {
     }
   },
 };
+
+const member = {
+  create: async () => {},
+  read: async () => {},
+  update: async () => {},
+  delete: async (req, res) => {
+    try {
+    } catch (err) {
+      throw err;
+    }
+  },
+};
+
 //use these for operations related to more "static" user information
-user = {
+const user = {
   create: async () => {}, //placeholder
   read: async () => {}, //palceholder
   update: async (req, res) => {
@@ -81,4 +94,5 @@ user = {
 module.exports = {
   monitor,
   user,
+  member,
 };
