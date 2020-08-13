@@ -137,13 +137,16 @@ function Register() {
               {passwordWarning}
             </span>
           </div>
-          <div className="flex items-center justify-between mb-12">
+          <div className="flex items-center justify-between">
             <button
               className="w-full text-center trans border border-green bg-green-500 hover:bg-white hover:text-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none"
               onClick={register}
             >
               Register
             </button>
+          </div>
+          <div className="mb-12">
+            <p className="text-xs">Already have an account? <a href="/login" className="text-green-500 hover:text-green-300">Login</a></p>
           </div>
           <div>
             <Link to="/api/auth/google" className="trans align-middle tracking-wide flex w-full border border-gray-300 rounded shadow">
