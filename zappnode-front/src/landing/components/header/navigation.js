@@ -1,5 +1,6 @@
 import React from 'react';
 import '../css/landing.css'
+import { Link } from 'react-router-dom';
 
 
 // navigation component 
@@ -37,11 +38,11 @@ const Navigation = props => {
       </a>
     </div>
     <div className="mr-10">
-      <a href="#" className="trans inline-block  px-5 py-3 text-base leading-none border rounded text-white border-white hover:border-transparent text-trans hover:bg-primary hover:bg-white mt-4 lg:mt-0">Login</a>
+      <Link to="/login" className="trans inline-block  px-5 py-3 text-base leading-none border rounded text-white border-white hover:border-transparent text-trans hover:bg-primary hover:bg-white mt-4 lg:mt-0">Login</Link>
     </div>
 
     <div>
-      <a href="#" className="trans text-pri inline-block px-5 py-3 text-base leading-none rounded text-white hover:text-primary hover:bg-transparent border border-green-500 btn-primary mt-4 lg:mt-0">Register</a>
+      <Link to="/register" className="trans text-pri inline-block px-5 py-3 text-base leading-none rounded text-white hover:text-primary hover:bg-transparent border border-green-500 btn-primary mt-4 lg:mt-0">Register</Link>
     </div>
   </div>
 </nav>

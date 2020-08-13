@@ -19,7 +19,9 @@ function Register() {
   };
 
   const validPassword = () => {
-    // Add complexity checks
+    const re = /^[a-zA-Z]\w{7,19}$/;
+    var valid = re.test(password);
+    if (!valid) return false;
     if (password === passwordCheck) return true;
     return false;
   };
@@ -30,7 +32,7 @@ function Register() {
     if (!validEmailAdress()) {
       setEmailWarning("* Not a valid email address");
     } else if (!validPassword()) {
-      setPasswordWarning("* Passwords do not match")
+      setPasswordWarning("* Invalid password \n aasd")
     } else {
 
       const data = {
