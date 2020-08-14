@@ -28,6 +28,7 @@ const Navigation = (props) => {
         </button>
       </div>
 
+<<<<<<< HEAD
       <div className="w-full">
         <div className="text-sm flex flex-col my-10 font-semibold">
           <a
@@ -58,6 +59,24 @@ const Navigation = (props) => {
               Login
             </a>
           </div>
+=======
+  <div className="w-full">
+    <div className="text-sm flex flex-col my-10 font-semibold">
+      <a href="#features" className="text-cl-none mr-10 my-5 block mt-4 text-base text-gray-500 lg:inline-block lg:mt-0  hover:text-white mr-4">
+       Features
+      </a>
+      <a href="#integration" className="text-cl-none my-5 mr-10 block text-base mt-4 lg:inline-block lg:mt-0 hover:text-white mr-4">
+        Integration
+      </a>
+      <a href="#pricing" className="text-cl-none block my-5 text-base mt-4 lg:inline-block lg:mt-0 hover:text-white">
+        Pricing
+      </a>
+    </div>
+    <div className="flex justify-between">
+    <div className="mr-10">
+      <a href="#" className="trans inline-block px-5 py-3 text-base leading-none border rounded text-white border-white hover:border-transparent text-trans hover:bg-primary hover:bg-white mt-4 lg:mt-0">Login</a>
+    </div>
+>>>>>>> e70f1fa1e38f6323d6c71fa62044732226dab3fc
 
           <div>
             <a

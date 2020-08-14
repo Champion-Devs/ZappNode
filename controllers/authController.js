@@ -33,6 +33,7 @@ module.exports = {
       });
     }
   },
+
   isLoggedIn: async (req, res, next) => {
     try {
       if (req.isAuthenticated()) {
@@ -47,6 +48,14 @@ module.exports = {
       throw err;
     }
   },
+
+  isAdmin: async (req, res, next) => {
+    try {
+    } catch (err) {
+      throw err;
+    }
+  },
+
   logout: async (req, res) => {
     try {
       req.logout();

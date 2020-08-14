@@ -10,8 +10,8 @@ const Main = ()=> {
     return(
         <main>
         <Features/>
-        <Pricing/>
         <Integrate/>
+        <Pricing/>
         <Contact/>
         </main>
     )
