@@ -68,7 +68,7 @@ function Register() {
 
   return (
     <React.Fragment>
-      {redirect ? <Redirect to="/dashboard" /> : null};
+      {redirect ? <Redirect to="/dashboard" /> : null}
       <div className="flex justify-center mt-10">
         <form className="bg-white max-w-xs w-full rounded px-8 pt-6 pb-8 mb-4" action="">
           <h1 className="font-bold text-xl mb-6">

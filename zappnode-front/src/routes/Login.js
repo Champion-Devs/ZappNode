@@ -7,6 +7,14 @@ function Login() {
   const [credentials, setCredentials] = useState(
     { username: "", password: "" }
   );
+  const [warning, setWarning] = useState("");
+
+  const login = async (e) => {
+    e.preventDefault();
+    if (credentials.username === "" || credentials.password === "") {
+      setWarning("Please enter your login credentials.")
+    } 
+  };
 
   return (
     <React.Fragment>
@@ -25,22 +33,28 @@ function Login() {
               onChange={e => setCredentials({ username: e.target.value, password: credentials.password })}
             />
           </div>
-          <div className="mb-3">
+          <div className="mb-8">
             <label className="block text-gray-700 text-sm font-bold" for="password">
               Password
             </label>
             <input
-              className="trans appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:border-green-500"
+              className="trans appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-green-500"
               id="password"
               type="password"
               value={credentials.password}
               onChange={e => setCredentials({ username: credentials.username, password: e.target.value })}
             />
+            <span className="italic text-xs text-red-500">
+              {warning}
+            </span>
           </div>
           <div className="flex items-center justify-between mb-12">
-            <Link className="trans border border-green bg-green-500 hover:bg-white hover:text-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+            <button
+              className="trans border border-green bg-green-500 hover:bg-white hover:text-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              onClick={login}
+            >
               Login
-            </Link>
+            </button>
             <a className="trans inline-block align-baseline font-bold text-sm text-green-500 hover:text-green-400" href="#">
               Forgot Password?
             </a>
