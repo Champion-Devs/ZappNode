@@ -1,19 +1,33 @@
 import React, { useState } from 'react';
 import GoogleIcon from '../assets/imgs/btn_google_light.svg';
 import FacebookIcon from '../assets/imgs/btn_facebook.svg';
-import { Link } from 'react-router-dom';
 
 function Login() {
   const [credentials, setCredentials] = useState(
-    { username: "", password: "" }
+    { email: "", password: "" }
   );
   const [warning, setWarning] = useState("");
 
   const login = async (e) => {
     e.preventDefault();
-    if (credentials.username === "" || credentials.password === "") {
-      setWarning("Please enter your login credentials.")
-    } 
+    if (credentials.email === "" || credentials.password === "") {
+      setWarning("Please enter your login credentials.");
+      return;
+    };
+    const data = {
+      email: credentials.email,
+      password: credentials.password
+    }
+    fetch(
+      "/api/auth/local",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      }
+    );
   };
 
   return (
@@ -22,19 +36,19 @@ function Login() {
         <form className="bg-white max-w-xs w-full rounded px-8 pt-6 pb-8 mb-4" action="">
           <h1 className="font-bold text-xl mb-6">Login</h1>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold" for="username">
-              Username
+            <label className="block text-gray-700 text-sm font-bold">
+              Email
             </label>
             <input
               className="trans appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-green-500"
-              id="username"
+              id="email"
               type="text"
-              value={credentials.username}
-              onChange={e => setCredentials({ username: e.target.value, password: credentials.password })}
+              value={credentials.email}
+              onChange={e => setCredentials({ email: e.target.value, password: credentials.password })}
             />
           </div>
           <div className="mb-8">
-            <label className="block text-gray-700 text-sm font-bold" for="password">
+            <label className="block text-gray-700 text-sm font-bold">
               Password
             </label>
             <input
@@ -42,7 +56,7 @@ function Login() {
               id="password"
               type="password"
               value={credentials.password}
-              onChange={e => setCredentials({ username: credentials.username, password: e.target.value })}
+              onChange={e => setCredentials({ email: credentials.email, password: e.target.value })}
             />
             <span className="italic text-xs text-red-500">
               {warning}
@@ -61,7 +75,7 @@ function Login() {
           </div>
           <div>
             <a href="/api/auth/google" className="trans align-middle tracking-wide flex w-full border border-gray-300 rounded shadow">
-              <img src={GoogleIcon} className="block p-2" />
+              <img src={GoogleIcon} alt="google" className="block p-2" />
               <span className="w-full flex items-center font-bold text-gray-700">
                 Sign in with Google
               </span>
@@ -69,7 +83,7 @@ function Login() {
           </div>
           <div className="mt-3">
             <a href="/api/auth/facebook" className="trans align-middle bg-blue-600 tracking-wide flex w-full border border-blue-600 rounded shadow">
-              <img src={FacebookIcon} className="block p-2" />
+              <img src={FacebookIcon} alt="facebook" className="block p-2" />
               <span className="w-full flex items-center font-bold text-white">
                 Log in with Facebook
               </span>
