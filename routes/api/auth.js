@@ -4,17 +4,17 @@ const router = express.Router();
 const passport = require('passport');
 
 router.post('/signUp', authController.signup);
-router.get('/logout', authController.logout);
-router.get('/google', function (request, response, next) {
+router.post('/logout', authController.logout);
+router.post('/google', function (request, response, next) {
   passport.authenticate('google', { scope: ['profile', 'email'] })(request, response, next);
 });
 
-router.get('/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
+router.post('/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
   // Successful authentication, redirect dashboard.
   res.redirect('/dashboard');
 });
 
-router.get('/local', passport.authenticate('local'), (req, res, next) => {
+router.post('/local', passport.authenticate('local'), (req, res, next) => {
   res.redirect('/dashboard');
   next();
 });

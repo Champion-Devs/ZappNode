@@ -2,6 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { Menubar } from 'primereact/menubar';
 import { Button } from 'primereact/button';
+import { Link } from 'react-router-dom';
 
 function NavBar() {
   const history = useHistory();
@@ -38,8 +39,9 @@ function NavBar() {
     <React.Fragment>
       <div className="p-3">
         <Menubar model={menuItems}>
-          <Button label="Login" />
-          <Button style={{ marginLeft: '4px', backgroundColor: 'green' }} label="Register" />
+          <Link to="/api/auth/logout">
+            <Button label="Logout"/>
+          </Link>
         </Menubar>
       </div>
     </React.Fragment>
