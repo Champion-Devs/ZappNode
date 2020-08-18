@@ -37,7 +37,7 @@ const ContentL = ()=> {
 const Content = ()=> {
     // merging both component from above
     return(
-        <div className="container my-auto pb-16 flex text-primary pt-10 justify-center lg:mt-10 md:mt-2 lg:flex-row md: flex-col sm: flex-row sm:mx-auto">
+        <div className="container my-auto pb-16 flex text-primary pt-10 justify-center lg:mt-24 md:mt-24 lg:flex-row md: flex-col sm: flex-row sm:mx-auto">
         <ContentL/>
         <ContentR/>
         </div>

@@ -8,7 +8,6 @@ import Landing from './landing';
 function Home() {
   return (
     <React.Fragment>
-      <NavBar />
       <Switch>
         <Route exact path="/features">
           <Features />
