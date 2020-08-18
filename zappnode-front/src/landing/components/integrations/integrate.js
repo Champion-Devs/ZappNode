@@ -10,7 +10,9 @@ let Integrate = ()=> {
         <h1 className="font-bold text-4xl text-center text-col-secondary text-gray-800">
             Blazingly <span className="text-green-500">fast</span> notifications.
         </h1>
-        <p className="text-center w-2/3 mt-3 mx-auto  font-base font-semibold text-gray-800">Website down? Find out before your users do. We provide you with popular notification options out of the box so you can integrate uptime data into your workflow without any hassle. Need a custom notification channel? Contact support and we'll figure something out.</p>
+        <p className="text-center w-2/3 mt-3 mx-auto  font-base font-semibold text-gray-800">
+            Website down? Find out before your users do. We provide you with popular notification options out of the box so you can integrate uptime data into your workflow without any hassle.
+        </p>
         <div className="cards flex justify-center mt-10 flex-wrap">
         <Card icon="1"/>
         <Card icon="2"/>
@@ -26,6 +28,9 @@ let Integrate = ()=> {
         <div className="flex justify-center mt-16">
         <Button link="#" content="View all integrations" styles="text-cl-none btn-primary py-3 px-6 rounded-full font-semibold"/>
         </div>
+        <p className="text-center w-2/3 mt-5 mx-auto text-gray-800">
+            Please contact support if you require a notification channel that is not listed.
+        </p>
         </section>
     )
 }
