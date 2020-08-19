@@ -140,6 +140,10 @@ body {
     margin-left: 3rem;
     margin-right: 3rem;
   }
+
+  .mt-b{
+   padding-top: 6rem;
+  }
 }
 
 @media only screen and (max-width: 1024px) {
