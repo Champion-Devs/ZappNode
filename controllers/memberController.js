@@ -1,9 +1,36 @@
 const User = require('../models/user');
+const { HTTPMonitor, PingMonitor, KeywordMonitor, PortMonitor, Monitor } = require('../models/monitor');
 
 const monitor = {
   create: async (req, res) => {
     try {
-      res.json({ message: 'not yet implemented' });
+      const { type, monitor, user_id } = req.body;
+      let p;
+      switch (type) {
+        case 'HTTPMonitor':
+          p = new HTTPMonitor(monitor);
+          break;
+
+        case 'PingMonitor':
+          p = new PingMonitor(monitor);
+          break;
+
+        case 'KeywordMonitor':
+          p = new KeywordMonitor(monitor);
+          break;
+
+        case 'PortMonitor':
+          p = new PortMonitor(monitor);
+          break;
+
+        default:
+          p = new Monitor(monitor);
+          break;
+      }
+      User.findByIdAndUpdate({ _id: user_id }, { $push: { monitors: p } }).exec((err, success) => {
+        if (err) throw err;
+        res.json(success);
+      });
     } catch (err) {
       throw err;
     }
