@@ -5,6 +5,7 @@
   --text-color-secondary: #a9a9a9;
   --bg-primary: #03010b;
   --color-UI: #e41919;
+  --color-gray: #777;
 }
 
 html {
@@ -39,6 +40,10 @@ body {
 
 .btn-primary {
   background: var(--color-primary);
+}
+
+.color-gray{
+  color: var(--color-gray)
 }
 
 .text-cl-none {

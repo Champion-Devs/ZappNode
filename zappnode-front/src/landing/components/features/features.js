@@ -8,7 +8,7 @@ import Button from '../button/button';
 const Features = () => {
     return(
         <section id="features" className="flex justify-center features flex-col py-16 mt-0">
-        <h1 className="font-bold text-4xl text-center text-col-secondary text-gray-800">Experience the <span className="text-green-500">benefits</span> of ZappNode.</h1>
+        <h1 className="font-bold text-4xl text-center color-gray">Experience the <span className="text-green-500">benefits</span> of ZappNode.</h1>
         <div className="container mx-auto d-flex">
         <Card heading="Website Monitoring" content="Get instant notifications if your website went down. Save time and money by being able to act fast."/>
         <Card heading="Port Monitoring" content="Find out if your server is still running on the same port. without going through your servers"/>
