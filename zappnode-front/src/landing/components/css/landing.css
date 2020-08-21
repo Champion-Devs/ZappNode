@@ -5,6 +5,7 @@
   --text-color-secondary: #a9a9a9;
   --bg-primary: #03010b;
   --color-UI: #e41919;
+  --color-gray: #777;
 }
 
 html {
@@ -41,6 +42,10 @@ body {
   background: var(--color-primary);
 }
 
+.color-gray{
+  color: var(--color-gray)
+}
+
 .text-cl-none {
   color: var(--text-color-primary);
 }
@@ -53,6 +58,9 @@ body {
   color: var(--color-UI);
 }
 
+.bg-lin{
+  background-image: linear-gradient(to right, #7ed56f, #28b485);
+}
 .pos-fixed {
   position: fixed;
   top: 0;
@@ -139,6 +147,14 @@ body {
     width: 66.666667%;
     margin-left: 3rem;
     margin-right: 3rem;
+  }
+
+  .px-sm{
+    padding: 2rem 4rem;
+  }
+
+  .mt-b{
+   padding-top: 6rem;
   }
 }
 

@@ -22,7 +22,7 @@ const Card = (props)=> {
      
     let li = lists.map((cur, index) => {
         return (
-            <li key={index} className="text-gray-600 font-semibold my-3">{cur}</li>
+            <li key={index} className="color-gray font-semibold my-3">{cur}</li>
         )
     });
 
@@ -35,14 +35,14 @@ const Card = (props)=> {
         <div className="text-green px-6 py-2 bg-gray-300 rounded-full my-3">
         <h1 className="text-3xl">${props.amount}/<span className="text-sm">mo</span></h1>
         </div> 
-        <p className="font-semibold text-gray-600">Billed ${props.amount * 12} yearly</p>
+        <p className="font-semibold color-gray">Billed ${props.amount * 12} yearly</p>
         </div>
         <div>
         <ul className="flex flex-col text-center text-secondary">
         {li}
         </ul>
         <div className="flex justify-center mt-6">
-        <Button link="#" content="Sign up" styles="text-cl-none btn-primary py-3 px-10 rounded-full font-semibold"/>
+        <Button link="/register" content="Sign up" styles="text-cl-none btn-primary py-3 px-10 rounded-full font-semibold"/>
         </div>
         </div>
         </div>

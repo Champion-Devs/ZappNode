@@ -1,5 +1,6 @@
 import React from 'react';
 import '../css/landing.css'
+import logo from './imgs/zappnode logo.svg'
 import { Link } from 'react-router-dom';
 
 
@@ -17,8 +18,8 @@ const Navigation = props => {
 
     return(
         <nav className="flex items-center justify-between flex-wrap p-6 pos-fixed z-10 bg-primary">
-  <div className="flex items-center flex-shrink-0 text-white mr-32">
-    <span className="font-semibold text-xl tracking-tight">ZappNode</span>
+  <div className="flex items-center flex-shrink-0 text-white mr-8 w-1/3">
+    <img className="w-40" src={logo} alt="zappnode logo"/>
   </div>
   <div className="block lg:hidden">
     <button className="flex items-center px-3 py-2 border rounded text-white border-green hover:text-white hover:border-white" onClick={handleClick}>
