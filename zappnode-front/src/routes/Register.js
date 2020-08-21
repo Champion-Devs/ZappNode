@@ -15,12 +15,12 @@ function Register() {
   const [passwordWarning, setPasswordWarning] = useState(<ul></ul>)
 
   const validEmailAdress = () => {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    const re = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/
     return re.test(email);
   };
 
   const validPassword = () => {
-    const re = /^([a-zA-Z0-9!@#$%^&*]{8,15})$/;
+    const re = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/;
     var valid = re.test(password);
     if (!valid) return false;
     if (password === passwordCheck) return true;
@@ -69,9 +69,9 @@ function Register() {
   return (
     <React.Fragment>
       {redirect ? <Redirect to="/dashboard" /> : null}
-      <div className="flex justify-center mt-10">
-        <form className="bg-white max-w-xs w-full rounded px-8 pt-6 pb-8 mb-4" action="">
-          <h1 className="font-bold text-xl mb-6">
+      <div className="flex m-0 flex-wrap bg-lin">
+        <form className="bg-white mx-w-xs pb-8 px-32 lg:w-1/2 md:w-full sm:w-full mx-auto rounded pt-6 m-10" action="">
+          <h1 className="font-bold text-2xl mb-6 text-center">
             Create an account
           </h1>
           <div className="mb-5">
@@ -146,18 +146,18 @@ function Register() {
             </button>
           </div>
           <div className="mb-12">
-            <p className="text-xs">Already have an account? <a href="/login" className="text-green-500 hover:text-green-300">Login</a></p>
+            <p className="text-xs text-center mt-4">Already have an account? <a href="/login" className="text-green-500 hover:text-green-300">Login</a></p>
           </div>
           <div>
-            <Link to="/api/auth/google" className="trans align-middle tracking-wide flex w-full border border-gray-300 rounded shadow">
-              <img src={GoogleIcon} className="block p-2" />
-              <span className="w-full flex items-center font-bold text-gray-700">
+            <Link to="/api/auth/google" className="trans align-middle tracking-wide text-center flex w-full border border-gray-300 rounded shadow">
+              <img src={GoogleIcon} className="block p-2 mx-auto" />
+              <span className="w-full flex items-center font-bold text-gray-700 text-center">
                 Sign in with Google
               </span>
             </Link>
           </div>
-          <div className="mt-3">
-            <Link to="/api/auth/facebook" className="trans align-middle bg-blue-600 tracking-wide flex w-full border border-blue-600 rounded shadow">
+          <div className="mt-3 text-center">
+            <Link to="/api/auth/facebook" className="trans align-middle bg-blue-600 tracking-wide justify-center flex w-full border border-blue-600 rounded shadow">
               <img src={FacebookIcon} className="block p-2" />
               <span className="w-full flex items-center font-bold text-white">
                 Log in with Facebook

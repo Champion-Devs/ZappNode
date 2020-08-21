@@ -32,9 +32,9 @@ function Login() {
 
   return (
     <React.Fragment>
-      <div className="flex justify-center mt-10">
-        <form className="bg-white max-w-xs w-full rounded px-8 pt-6 pb-8 mb-4" action="">
-          <h1 className="font-bold text-xl mb-6">Login</h1>
+      <div className="flex justify-center bg-lin h-full">
+        <form className="bg-white max-w-md w-full my-10 rounded px-8 pt-6 pb-8 mb-4" action="">
+          <h1 className="font-bold text-2xl mb-6 text-center">Login</h1>
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold">
               Email
