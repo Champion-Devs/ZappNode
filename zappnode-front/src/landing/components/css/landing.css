@@ -59,7 +59,7 @@ body {
 }
 
 .bg-lin{
-  background-image: linear-gradient(to right, #7ed56f, #28b485);
+  background-image: linear-gradient(to right bottom, #7ed56f, #28b485);
 }
 .pos-fixed {
   position: fixed;
@@ -98,6 +98,10 @@ body {
 
 .bg-secondary {
   background: var(--color-secondary);
+}
+
+.mb-neg{
+  margin-bottom: -150rem;
 }
 
 .d-flex {

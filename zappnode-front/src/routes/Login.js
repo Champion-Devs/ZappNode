@@ -31,9 +31,8 @@ function Login() {
   };
 
   return (
-    <React.Fragment>
-      <div className="flex justify-center bg-lin h-full">
-        <form className="bg-white max-w-md w-full my-10 rounded px-8 pt-6 pb-8 mb-4" action="">
+      <div className="bg-lin py-16">
+        <form className="bg-white max-w-md w-full mx-auto my-10 rounded px-8 pt-6 pb-8 mb-72" action="">
           <h1 className="font-bold text-2xl mb-6 text-center">Login</h1>
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold">
@@ -91,7 +90,6 @@ function Login() {
           </div>
         </form>
       </div>
-    </React.Fragment>
   );
 };
 
