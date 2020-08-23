@@ -3,18 +3,28 @@ const User = require('../models/user');
 
 module.exports = async (req, res) => {
   try {
-    const monitor_id = req.body.monitor_id;
+    const { message, monitor_id } = req.body;
 
+    // find monitor owner
     const user = await User.findOne({
       monitors: { $elemMatch: { _id: monitor_id } },
     });
 
     if (user) {
-      const message = req.body.message;
+      const members_ids = user.members;
+
+      const members_emails = [];
+
+      // find members and store their emails
+      for (const id of members_ids) {
+        const member = await User.findById(id);
+        members_emails.push(member.email);
+      }
 
       let data = {
         from: email,
         to: user.email,
+        cc: members_emails,
         subject: message.subject,
         text: message.body,
       };
