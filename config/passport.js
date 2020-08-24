@@ -1,6 +1,6 @@
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const LocalStrategy = require('passport-local').Strategy;
-const keys = require('./keys');
+const config = require('config');
 const userModel = require('../models/user');
 const bcrypt = require('bcrypt');
 
@@ -9,8 +9,8 @@ module.exports = function (passport) {
   passport.use(
     new GoogleStrategy(
       {
-        clientID: keys.GOOGLE_CLIENT_ID,
-        clientSecret: keys.GOOGLE_CLIENT_SECRET,
+        clientID: config.get('GOOGLE_CLIENT_ID'),
+        clientSecret: config.get('GOOGLE_CLIENT_SECRET'),
         callbackURL: '/api/auth/google/callback',
         proxy: true,
       },
