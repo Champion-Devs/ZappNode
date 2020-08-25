@@ -10,6 +10,7 @@ const Account = () => {
     tz: "CET", // Not currently in User schema
     plan: "Professional"
   };
+
   const profileIcon = <i className="pi pi-user mr-4"></i>
   let upgradePlan;
 
@@ -46,10 +47,10 @@ const Account = () => {
         </div>
         <div className="my-4">
           <h2 className="text-lg font-bold">Password change</h2>
-          <div className="p-fluid mt-4">
+          <div className="p-fluid">
             <div className="p-field">
               <label htmlFor="currentPassword">Current password</label>
-              <InputText id="currentPassword" type="password" />
+              <InputText id="currentPassword" type="password" className="focus:outline-none" />
             </div>
             <div className="p-field">
               <label htmlFor="newPassword">New password</label>
@@ -60,7 +61,9 @@ const Account = () => {
               <InputText id="confirmPassword" type="password" />
             </div>
           </div>
-          <button className="font-bold tracking-wider px-2 py-2 bg-green-500 text-white rounded transition duration-500 hover:bg-white hover:border-green-500 hover:text-green-500 border">Save</button>
+          <button className="font-bold tracking-wider px-2 py-2 bg-green-500 text-white rounded transition duration-500 hover:bg-white hover:border-green-500 hover:text-green-500 border">
+            Change password
+          </button>
         </div>
       </Card>
     </>
