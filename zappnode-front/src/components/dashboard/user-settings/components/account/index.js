@@ -44,7 +44,7 @@ const Account = () => {
           <h2 className="text-lg font-bold">Subscription</h2>
           You are currently subscribed to our <span className="font-bold">{user.plan}</span> plan
           <span className="font-bold cursor-pointer float-right text-green-500">upgrade</span>
-        </div>
+        </div> 
         <div className="my-4">
           <h2 className="text-lg font-bold">Password change</h2>
           <div className="p-fluid">

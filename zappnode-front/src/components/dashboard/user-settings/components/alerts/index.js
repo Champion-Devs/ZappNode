@@ -15,9 +15,9 @@ const Alerts = () => {
   }
   const listMembers = user.members.map((member) => 
     <tr>
-      <td className="border px-4 py-2"><i className="pi pi-envelope"></i></td>
+      <td className="border px-4 py-2 flex justify-center"><i className="pi pi-envelope"></i></td>
       <td className="border px-4 py-2">{member}</td>
-      <td className="border px-4 py-2 flex justify-end">
+      <td className="border px-4 py-2 flex justify-center">
         <i className="pi pi-pencil text-xs text-gray-600 mr-4"></i>
         <i className="pi pi-minus-circle text-red-600 text-xs"></i>
       </td>
