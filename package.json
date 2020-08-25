@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/aorelhas/ZappNode#readme",
   "dependencies": {
+    "axios": "^0.20.0",
     "bcrypt": "^5.0.0",
     "config": "^3.3.1",
     "express": "^4.17.1",
