@@ -60,7 +60,16 @@ const monitor = {
 
   update: async (req, res) => {
     try {
-      res.json({ message: 'not yet implemented' });
+      const { user_id, monitor_id, monitor } = req.body;
+      User.findOneAndUpdate(
+        { _id: user_id, monitors: { _id: monitor_id } },
+        {
+          $set: { 'monitors.$': monitor },
+        },
+      ).exec((err, success) => {
+        if (err) throw err;
+        res.json(success);
+      });
     } catch (err) {
       throw err;
     }
