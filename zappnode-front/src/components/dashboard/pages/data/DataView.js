@@ -4,7 +4,7 @@ import { Panel } from 'primereact/panel';
 import { DataView, DataViewLayoutOptions } from 'primereact/dataview';
 import { Button } from 'primereact/button';
 import { Dropdown } from 'primereact/dropdown';
-import { TrackerService } from '../../service/TrackerService';
+import { TrackerService } from '../../../../service/TrackerService';
 
 function Dataview() {
   const [trackers, setTrackers] = useState([]);

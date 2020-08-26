@@ -21,12 +21,13 @@ function Register() {
 
   return (
     <React.Fragment>
-      {redirect ? <Redirect to="/login" /> : null}
-      <div className="flex m-0 flex-wrap bg-lin">
-        <form className="bg-white mx-w-xs pb-8 px-32 lg:w-1/2 md:w-full sm:w-full mx-auto rounded pt-6 m-10" action="">
-          <h1 className="font-bold text-2xl mb-6 text-center">Create an account</h1>
-          <span className="inline-block italic text-xs text-red-500">{error}</span>
-          <div className="mb-5">
+      {redirect ? <Redirect to="/dashboard" /> : null}
+      <div className="flex bg-lin">
+        <form className="bg-white mx-auto rounded w-1/2 px-16 py-8 m-10" action="">
+          <h1 className="font-bold text-2xl mb-6 text-center">
+            Create an account
+          </h1>
+         <div className="mb-5">
             <label className="block text-gray-700 text-sm font-bold">Username</label>
             <input
               className="trans appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-green-500"

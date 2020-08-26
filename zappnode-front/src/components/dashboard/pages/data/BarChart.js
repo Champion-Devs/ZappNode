@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Chart } from 'primereact/chart';
-import { TrackerService } from '../../service/TrackerService';
+import { TrackerService } from '../../../../service/TrackerService';
 
 function BarChart() {
   const chartColors = ["#38C172", "#D17A30", "#3468D9"]
