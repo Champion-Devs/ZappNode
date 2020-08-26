@@ -13,11 +13,11 @@ const Alerts = () => {
       "someone@mail.ru"
     ]
   }
-  const listMembers = user.members.map((member) => 
-    <tr>
-      <td className="border px-4 py-2 flex justify-center"><i className="pi pi-envelope"></i></td>
+  const listMembers = user.members.map((member, index) => 
+    <tr key={index}>
+      <td className="border px-4 py-2 text-center"><i className="pi pi-envelope"></i></td>
       <td className="border px-4 py-2">{member}</td>
-      <td className="border px-4 py-2 flex justify-center">
+      <td className="border px-4 py-2 text-center">
         <i className="pi pi-pencil text-xs text-gray-600 mr-4"></i>
         <i className="pi pi-minus-circle text-red-600 text-xs"></i>
       </td>
@@ -30,7 +30,7 @@ const Alerts = () => {
         <div className="my-4">
           <h1 className="font-bold text-xl">
             Alerts
-            <button class="rounded text-xs font-bold float-right px-2 py-1 text-white bg-green-500">
+            <button className="rounded text-xs font-bold float-right px-2 py-1 text-white bg-green-500">
               Add Alert
             </button>
           </h1>
