@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Login, Pricing, Register, Usage, Features, Dashboard } from './routes';
 import Landing from './landing';
+import Profile from './components/dashboard/pages/profile';
 
 // these will be the main pages for non signed in users
 function Home() {
@@ -25,6 +26,9 @@ function Home() {
         </Route>
         <Route exact path="/dashboard">
           <Dashboard />
+        </Route>
+        <Route exact path="/dashboard/settings">
+          <Profile />
         </Route>
         <Route path="/">
           <Landing />
