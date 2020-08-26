@@ -28,9 +28,9 @@ const Alerts = () => {
     <>
       <Card className="m-5">
         <div className="my-4">
-          <h1 className="font-bold text-lg">
+          <h1 className="font-bold text-xl">
             Alerts
-            <button class="rounded text-sm font-bold float-right px-2 py-1 text-white bg-green-500">
+            <button class="rounded text-xs font-bold float-right px-2 py-1 text-white bg-green-500">
               Add Alert
             </button>
           </h1>
