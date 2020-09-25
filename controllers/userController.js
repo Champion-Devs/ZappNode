@@ -141,14 +141,27 @@ const member = {
 };
 
 //use these for operations related to more "static" user information
+//this is an alias for /api/auth/signup
 const user = {
   create: async (req, res) => {
     try {
-      res.json({ message: 'not yet implemented' });
+      const { name, email, password } = req.body;
+      if (await User.findOne({ email })) {
+        res.send('User Exists');
+      } else {
+        const user = await User.create({ name, email, password });
+
+        if (!user) {
+          res.send('Database Error');
+        } else {
+          res.send('success');
+        }
+      }
     } catch (err) {
-      throw err;
+      console.log(err);
+      res.send('Server Error');
     }
-  }, //this is currently taken care of by /signup
+  },
 
   read: async (req, res) => {
     //reads a user or the user list, takes an optional user_id
