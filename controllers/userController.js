@@ -45,15 +45,15 @@ const monitor = {
       const { user_id, monitor_id } = req.body;
       //if no specific monitor was requested from the user, send them all
       if (!monitor_id) {
-        User.find({ _id: user_id }).exec((err, success) => {
+        User.findOne({ _id: user_id }).exec((err, success) => {
           if (err) throw err;
           res.json(success.monitors);
         });
       } else {
         //otherwise, send the specific monitor
-        User.find({ _id: user_id, monitors: { _id: monitor_id } }).exec((err, success) => {
+        User.findOne({ _id: user_id }, { monitors: { $elemMatch: { _id: monitor_id } } }).exec((err, success) => {
           if (err) throw err;
-          res.json(success);
+          res.json(success.monitors[0]);
         });
       }
     } catch (err) {
@@ -63,15 +63,17 @@ const monitor = {
 
   update: async (req, res) => {
     try {
-      const { user_id, monitor_id, monitor } = req.body;
+      const { user_id, monitor } = req.body;
       User.findOneAndUpdate(
-        { _id: user_id, monitors: { _id: monitor_id } },
+        { _id: user_id, 'monitors._id': monitor._id },
         {
-          $set: { 'monitors.$': monitor },
+          $set: { 'monitors.$': { ...monitor } },
         },
+        { new: true },
       ).exec((err, success) => {
         if (err) throw err;
-        res.json(success);
+        //return he updated monitors array
+        res.json(success.monitors);
       });
     } catch (err) {
       throw err;
@@ -81,10 +83,12 @@ const monitor = {
   delete: async (req, res) => {
     try {
       const { user_id, monitor_id } = req.body;
-      User.findOneAndUpdate({ _id: user_id }, { $pull: { monitors: { _id: monitor_id } } }).exec((err, success) => {
-        if (err) throw err;
-        res.json(success);
-      });
+      User.findOneAndUpdate({ _id: user_id }, { $pull: { monitors: { _id: monitor_id } } }, { new: true }).exec(
+        (err, success) => {
+          if (err) throw err;
+          res.json(success);
+        },
+      );
     } catch (err) {
       throw err;
     }
@@ -141,14 +145,27 @@ const member = {
 };
 
 //use these for operations related to more "static" user information
+//this is an alias for /api/auth/signup
 const user = {
   create: async (req, res) => {
     try {
-      res.json({ message: 'not yet implemented' });
+      const { name, email, password } = req.body;
+      if (await User.findOne({ email })) {
+        res.send('User Exists');
+      } else {
+        const user = await User.create({ name, email, password });
+
+        if (!user) {
+          res.send('Database Error');
+        } else {
+          res.send('success');
+        }
+      }
     } catch (err) {
-      throw err;
+      console.log(err);
+      res.send('Server Error');
     }
-  }, //this is currently taken care of by /signup
+  },
 
   read: async (req, res) => {
     //reads a user or the user list, takes an optional user_id
