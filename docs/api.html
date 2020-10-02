@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Zappnode API</title>
+		<style>
+			h2 {
+				margin: 0px;
+			}
+			body {
+				margin: 0px;
+				background-color: #f3f3f3;
+			}
+			section {
+				padding: 10px;
+			}
+			ul {
+			}
+			li {
+			}
+			.title-container {
+				background-color: #03010b;
+				display: flex;
+				padding: 10px;
+			}
+			.title-container h1 {
+				color: white;
+			}
+			.section-title {
+				background-color: #2ecc71;
+				color: #f3f3f3;
+				display: flex;
+				flex-direction: column;
+				padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="title-container">
+			<h1>Zappnode API</h1>
+		</div>
+		<section>
+			<div class="section-title">
+				<h2>Users</h2>
+				<p>This section deals with the endpoints of /api/users</p>
+			</div>
+			<h3>/api/users</h3>
+			<p>These endpoints operate on user information</p>
+			<ul>
+				<li>
+					<p>POST:/api/users/</p>
+					<p>
+						Create a new user. Expects a user object. Returns a
+						message indicating success or error
+					</p>
+				</li>
+				<li>
+					<p>GET:/api/users/</p>
+					<p>
+						Get a user or users. Returns a specific user by id
+						if user_id is specified in the request body.
+						Otherwise returns all users.
+					</p>
+				</li>
+				<li>
+					<p>PATCH:/api/users/</p>
+					<p>
+						Update a user. Expects data fields of the user
+						object to update. Returns a status message
+						indicating success or failure. This route updates
+						the logged in user by their id, thus it REQUIRES a
+						logged in user and will update ONLY that user. The
+						user's id is submitted automatically as part of
+						their session and does not need to be sent with the
+						body
+					</p>
+				</li>
+				<li>
+					<p>DELETE:/api/users/</p>
+					<p>
+						Delete a user. This endpoint REQUIRES a logged in
+						user, and will delete only that user. The user id is
+						submitted automattically as part of their session
+						and does not need to be sent with the body.
+						Redirects the user to logout on success, otherwise
+						throws error
+					</p>
+				</li>
+			</ul>
+			<h3>/api/users/monitor</h3>
+			<p>
+				These endpoints operate specifically on monitors within the user's
+				monitors array
+			</p>
+			<ul>
+				<li>
+					<p>POST:/api/users/monitor</p>
+					<p>
+						Create a new monitor. Expects a monitor type, a
+						monitor object, and a user_id. Valid monitor types
+						are: 'HTTPMonitor', 'PingMonitor', 'KeywordMonitor',
+						'PortMonitor'. On success, returns the user. On
+						failure, throws error.
+					</p>
+				</li>
+				<li>
+					<p>GET:/api/users/monitor</p>
+					<p>
+						Read an existing monitor(s). Expects a user_id and
+						an optional monitor_id. Returns the specific monitor
+						requested if monitor_id is present, otherwise
+						returns the user's whole monitor array. On success
+						returns the monitor object or array, on failure
+						throws error.
+					</p>
+				</li>
+				<li>
+					<p>PUT:/api/users/monitor</p>
+					<p>
+						Update an existing monitor. Expects a user_id and a
+						monitor object. On success, returns the updated
+						monitor, on failure throws error.
+					</p>
+				</li>
+				<li>
+					<p>DELETE:/api/users/monitor</p>
+					<p>
+						Delete a monitor. Expects a user_id and a
+						monitor_id. On success returns the user that
+						contained the deleted array. On failure throws error
+					</p>
+				</li>
+			</ul>
+			<h3>/api/users/member</h3>
+			<p>
+				These endpoints operate specifically on the members in a user's
+				member array.
+			</p>
+			<ul>
+				<li>
+					<p>POST:/api/users/member</p>
+					<p>
+						Create a new member on the user. Expects a user_id
+						and a member_id. On success returns the user, on
+						failure throws an error.
+					</p>
+				</li>
+				<li>
+					<p>GET: /api/users/member</p>
+					<p>
+						Read an existing member. Expects a member_id. On
+						success returns that member's user object. On
+						failure throws error.
+					</p>
+				</li>
+				<li>
+					<p>PUT: /api/users/member</p>
+					<p>Not Yet Implemented</p>
+				</li>
+				<li>
+					<p>DELETE: /api/users/member</p>
+					<p>
+						Delete a member from the user. Expects a user_id and
+						a member_id. On success returns the user, on failure
+						throws error
+					</p>
+				</li>
+			</ul>
+		</section>
+		<section>
+			<div class="section-title">
+				<h2>Members</h2>
+				<p>This section deals with the endpoints of /api/members</p>
+			</div>
+			<h3>/api/members/monitor</h3>
+			<p>
+				These endpoints operate on a monitor in a member's parent's monitor
+				array
+			</p>
+			<ul>
+				<li>
+					<p>POST:/api/members/monitor</p>
+					<p>
+						Create a new monitor on the member parent. Expects a
+						monitor type, a monitor object, and a user_id. Valid
+						monitor types are: 'HTTPMonitor', 'PingMonitor',
+						'KeywordMonitor', 'PortMonitor'. On success, returns
+						the user. On failure, throws error. This route
+						REQUIRES a logged in user.
+					</p>
+				</li>
+				<li>
+					<p>GET: /api/members/monitor</p>
+					<p>
+						Read an existing monitor(s). Expects a user_id and
+						an optional monitor_id. Returns the specific monitor
+						requested if monitor_id is present, otherwise
+						returns the user's whole monitor array. On success
+						returns the monitor object or array, on failure
+						throws error. This route REQUIRES a logged in user.
+					</p>
+				</li>
+				<li>
+					<p>PUT:/api/members/monitor</p>
+					<p>
+						Update an existing monitor. Expects a user_id and a
+						monitor object. On success, returns the updated
+						monitor, on failure throws error. This route
+						REQUIRES a logged in user.
+					</p>
+				</li>
+			</ul>
+		</section>
+		<section>
+			<div class="section-title">
+				<h2>Auth</h2>
+				<p>This section deals with the endpoints of /api/auth</p>
+			</div>
+			<p>This section is pending</p>
+		</section>
+		<section>
+			<div class="section-title">
+				<h2>Alerts</h2>
+				<p>This section deals with the endpoints of /api/alerts</p>
+			</div>
+			<p>This section is pending</p>
+		</section>
+	</body>
+</html>
