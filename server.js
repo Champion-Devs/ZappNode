@@ -33,7 +33,9 @@ app.use('/api/users', require('./routes/api/users'));
 app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/alerts', require('./routes/api/alerts'));
 app.use('/api/members', require('./routes/api/members'));
-
+app.use('/api/info', (req, res) => {
+  res.sendFile('docs/api.html', { root: __dirname });
+});
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
