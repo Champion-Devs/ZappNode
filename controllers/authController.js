@@ -38,6 +38,13 @@ module.exports = {
 
   isAdmin: async (req, res, next) => {
     try {
+      if (req.user.role.type !== 'admin') {
+        res.status(400).send({ message: 'this user is not an admin' });
+        return;
+      } else {
+        res.status(200).send({ mesage: 'Is Admin: OK!' });
+        return next();
+      }
     } catch (err) {
       throw err;
     }
