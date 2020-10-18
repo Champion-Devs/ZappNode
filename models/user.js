@@ -16,7 +16,7 @@ const User = new Schema({
   },
   plan: String,
   members: Array,
-  monitors: [Monitor.schema],
+  monitors: Array,
 });
 
 User.pre('save', async function () {
