@@ -15,7 +15,6 @@ router.post('/google/callback', passport.authenticate('google', { failureRedirec
 });
 
 router.post('/local', passport.authenticate('local'), (req, res, next) => {
-  console.log(req.user);
   //if there's no user, send an error
   if (!req.user) res.status(400).send({ message: 'No such user' });
   //otherwise send the user
