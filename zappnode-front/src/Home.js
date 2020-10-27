@@ -1,11 +1,12 @@
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { Login, Pricing, Register, Usage, Features, Dashboard } from './routes';
 import Landing from './landing';
 import Profile from './components/dashboard/pages/profile';
 
 // these will be the main pages for non signed in users
 function Home() {
+  const [user, setUser] = useState();
   return (
     <React.Fragment>
       <Switch>
@@ -19,7 +20,7 @@ function Home() {
           <Pricing />
         </Route>
         <Route exact path="/logIn">
-          <Login />
+          {user ? <Redirect to="/dashboard" /> : <Login setUser={setUser} />}
         </Route>
         <Route exact path="/register">
           <Register />
