@@ -227,5 +227,50 @@
       </div>
       <p>This section is pending</p>
     </section>
+    <section>
+      <div class="section-title">
+        <h2>Data Definitions</h2>
+      </div>
+      <h3>Monitor</h3>
+      <ul>
+        <li>
+          <p>type: <i>string</i></p>
+          <p>Type of monitor set by the user can be: <b>HTTPMonitor || PingMonitor || KeywordMonitor || PortMonitor</b>.</p>
+          <ul>
+            <p>In case of:</p>
+            <li>
+              <p><b>HTTPMonitor: </b>A <b>url</b>: <i>string</i> field is added.</p>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <p><b>PingMonitor: </b>A <b>host</b>: <i>string</i> field is added.</p>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <p><b>KeywordMonitor: </b><b>url</b>: <i>string</i>, <b>keyword</b>: <i>string</i>, <b>username</b>: <i>string</i>, <b>password</b>: <i>string</i>, fields are added</p>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <p><b>PortMonitor: </b><b>host</b>: <i>string</i>, <b>port</b>: <i>number</i> fields are added.</p>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <p>title: <i>string</i></p>
+          <p>Monitor's title set by the user.</p>
+        </li>
+        <li>
+          <p>interval: <i>number</i></p>
+          <p>Time in minutes set by user between successive monitor checks.</p>
+        </li>
+        <li>
+          <p>paused: <i>boolean</i></p>
+          <p>When set to <b>true</b>, the monitor is stopped.</p>
+        </li>
+      </ul>
+    </section>
   </body>
 </html>
