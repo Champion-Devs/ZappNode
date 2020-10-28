@@ -2,39 +2,35 @@ import React from 'react';
 import { Card } from 'primereact/card';
 import { InputText } from 'primereact/inputtext';
 
-const Account = () => {
-  // Placeholder user object:
-  const user = {
-    name: "user1",
-    email: "user1@gmail.com",
-    tz: "CET", // Not currently in User schema
-    plan: "Professional"
-  };
-
-  const profileIcon = <i className="pi pi-user mr-4"></i>
+const Account = ({ user }) => {
+  if (!user) user = {};
+  user.plan = '';
+  const profileIcon = <i className="pi pi-user mr-4"></i>;
   let upgradePlan;
-
   // If the user's current plan is lower than the higher plan, then we show an
   // 'Upgrade' button. If our highest plan is called something other than
   // 'Business' then this must be changed as well.
-  if (user.plan !== "Business") {
-    upgradePlan = <button className="transition duration-500 hover:bg-white hover:text-green-500 border hover:border-green-500 rounded bg-green-500 tracking-wider font-bold uppercase text-sm text-white ml-4 px-2">
-      Upgrade
-    </button>
+  if (user.plan !== 'Business') {
+    upgradePlan = (
+      <button className="transition duration-500 hover:bg-white hover:text-green-500 border hover:border-green-500 rounded bg-green-500 tracking-wider font-bold uppercase text-sm text-white ml-4 px-2">
+        Upgrade
+      </button>
+    );
   } else upgradePlan = null;
   return (
     <>
       <Card className="m-5">
         <div className="my-4">
           <h1 className="font-bold text-xl">
-            {profileIcon}{user.name}
+            {profileIcon}
+            {user.name}
             <span className="text-base float-right">
               {user.plan}
               {upgradePlan}
             </span>
           </h1>
         </div>
-        <hr/>
+        <hr />
         <div className="my-4">
           <h2 className="text-lg font-bold">Email</h2>
           Your account is registered to <span className="font-bold">{user.email}</span>
@@ -44,7 +40,7 @@ const Account = () => {
           <h2 className="text-lg font-bold">Subscription</h2>
           You are currently subscribed to our <span className="font-bold">{user.plan}</span> plan
           <span className="font-bold cursor-pointer float-right text-green-500">upgrade</span>
-        </div> 
+        </div>
         <div className="my-4">
           <h2 className="text-lg font-bold">Password change</h2>
           <div className="p-fluid">
@@ -67,7 +63,7 @@ const Account = () => {
         </div>
       </Card>
     </>
-  )
+  );
 };
 
 export default Account;

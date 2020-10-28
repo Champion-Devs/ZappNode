@@ -4,11 +4,11 @@ import Alerts from './alerts';
 import PublicStatusPage from './public-pages';
 import Other from './other';
 
-const Main = () => {
+const Main = ({ user }) => {
   return (
     <>
       {/* component imports */}
-      <Account />
+      <Account user={user} />
       <Alerts />
       <PublicStatusPage />
       <Other />

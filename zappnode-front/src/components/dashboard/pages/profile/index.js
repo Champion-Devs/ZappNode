@@ -1,12 +1,12 @@
 import React from 'react';
 import Main from './components/main';
 
-const Settings = () => {
+const Settings = ({ user }) => {
   return (
     <>
-      <Main />
+      <Main user={user} />
     </>
-  )
-}
+  );
+};
 
 export default Settings;
