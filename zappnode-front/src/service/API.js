@@ -1,3 +1,54 @@
+//data definitions
+class User {
+  constructor({
+    name = 'DEFAULT',
+    email = 'DEFAULT',
+    password = 'DEFAULT',
+    googleID = 'DEFAULT',
+    facebookID = 'DEFAULT',
+    role = 'user',
+    plan = 'DEFAULT',
+    members = [],
+    monitors = [],
+  }) {
+    this.name = name;
+    this.email = email;
+    this.password = password;
+    this.googleID = googleID;
+    this.facebookID = facebookID;
+    this.role = role;
+    this.plan = plan;
+    this.members = members;
+    this.monitors = monitors;
+  }
+}
+
+class Monitor {
+  constructor({
+    title = 'DEFAULT',
+    created_at = new Date(),
+    active = true,
+    isUp = true,
+    paused = false,
+    totalRequests = 0,
+    lastRequest = new Date(),
+    totalDownTimes = 0,
+    lastDownTime = new Date(),
+    interval = 5,
+  }) {
+    this.title = title;
+    this.created_at = created_at;
+    this.active = active;
+    this.isUp = isUp;
+    this.paused = paused;
+    this.totalRequests = totalRequests;
+    this.lastRequest = lastRequest;
+    this.totalDownTimes = totalDownTimes;
+    this.lastDownTime = lastDownTime;
+    this.interval = interval;
+  }
+}
+
 const API = {
   // user for /api/users routes
   users: {
@@ -5,7 +56,7 @@ const API = {
       const res = await fetch('/api/users', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(user),
+        body: JSON.stringify(new User(user)),
       }).then((res) => res.json());
       return res;
     },
@@ -43,7 +94,7 @@ const API = {
         const res = await fetch('/api/users/monitor', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ type: monitor_type, monitor: monitor, user_id: user_id }),
+          body: JSON.stringify({ type: monitor_type, monitor: new Monitor(monitor), user_id: user_id }),
         }).then((res) => res.json());
         return res;
       },
@@ -61,7 +112,7 @@ const API = {
         const res = await fetch('/api/users/monitor', {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ user_id: user_id, monitor: monitor }),
+          body: JSON.stringify({ user_id: user_id, monitor: new Monitor(monitor) }),
         }).then((res) => res.json());
         return res;
       },
