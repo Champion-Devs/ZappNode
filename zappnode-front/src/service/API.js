@@ -171,18 +171,65 @@ const API = {
   members: {
     //use for /api/member/monitor routes
     monitor: {
-      POST: () => {},
-      GET: () => {},
-      PUT: () => {},
+      POST: async (monitor_type, monitor, user_id) => {
+        const res = await fetch('/api/users/monitor', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ type: monitor_type, monitor: new Monitor(monitor), user_id: user_id }),
+        }).then((res) => res.json());
+        return res;
+      },
+
+      GET: async (user_id, monitor_id) => {
+        const res = await fetch('/api/users/monitor', {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ user_id: user_id, monitor_id: monitor_id }),
+        }).then((res) => res.json());
+        return res;
+      },
+
+      PUT: async (user_id, monitor) => {
+        const res = await fetch('/api/users/monitor', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ user_id: user_id, monitor: new Monitor(monitor) }),
+        }).then((res) => res.json());
+        return res;
+      },
     },
   },
 
   //use for /api/auth routes
   auth: {
-    signup: () => {},
-    logout: () => {},
-    google: () => {},
-    local: () => {},
+    signup: async (name, email, password) => {
+      const res = await fetch('/api/auth/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name, email: email, password: password }),
+      }).then((res) => res.json());
+      return res;
+    },
+
+    logout: async () => {
+      const res = await fetch('/api/auth/logout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(null),
+      }).then((res) => res.json());
+      return res;
+    },
+
+    google: async () => {},
+
+    local: async (email, password) => {
+      const res = await fetch('/api/auth/local', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, password: password }),
+      }).then((res) => res.json());
+      return res;
+    },
   },
 
   //use for /api/alerts routes
