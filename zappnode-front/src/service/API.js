@@ -222,7 +222,7 @@ const API = {
 
     google: async () => {},
 
-    local: async (email, password) => {
+    local: async ({ email, password }) => {
       const res = await fetch('/api/auth/local', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
