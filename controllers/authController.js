@@ -12,7 +12,7 @@ module.exports = {
         if (!user) {
           res.send('Database Error');
         } else {
-          res.send('success');
+          res.status(200).json({ data: 'success' });
         }
       }
     } catch (err) {

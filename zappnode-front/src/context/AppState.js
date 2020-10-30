@@ -1,7 +1,6 @@
 import React, { createContext, useReducer } from 'react';
 import AppReducer from './AppReducer';
-import axios from 'axios';
-
+import { API } from '../service/API';
 // Setting up our Initial State
 let initialState = {
   user: [],
@@ -49,7 +48,7 @@ export const AppProvider = ({ children }) => {
         payload: 'Password do not match',
       });
     } else {
-      const res = await axios.post('api/auth/signUp', { name, email, password });
+      const res = await API.auth.signup(name, email, password);
 
       if (res.data === 'success') {
         return true;

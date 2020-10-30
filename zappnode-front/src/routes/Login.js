@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import GoogleIcon from '../assets/imgs/btn_google_light.svg';
 import FacebookIcon from '../assets/imgs/btn_facebook.svg';
+import { API } from '../service/API';
 
 function Login({ setUser }) {
   const [credentials, setCredentials] = useState({ email: '', password: '' });
@@ -16,13 +17,7 @@ function Login({ setUser }) {
       email: credentials.email,
       password: credentials.password,
     };
-    const loggedInUser = await fetch('/api/auth/local', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    }).then((res) => res.json());
+    const loggedInUser = await API.auth.local(data);
     setUser(loggedInUser);
   };
 
