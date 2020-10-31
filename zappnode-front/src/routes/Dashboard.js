@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import SideBar from '../components/dashboard/pages/sidebar/sidebar';
 import Settings from '../components/dashboard/pages/profile/index';
 import Member from '../components/dashboard/pages/members/member';
+import Overview from '../components/dashboard/pages/overview/Overview';
 import './dashboard.css';
 function View(props) {
   return <div className={'view'}>{props[props.view]}</div>;
@@ -14,7 +15,12 @@ function Dashboard({ user }) {
   return (
     <div className={'dashboard'}>
       <SideBar setView={setView} />
-      <View Settings={<Settings user={user} />} Member={<Member user={user} />} view={view} />
+      <View
+        Settings={<Settings user={user} />}
+        Member={<Member user={user} />}
+        view={view}
+        Overview={<Overview user={user} />}
+      />
     </div>
   );
 }
