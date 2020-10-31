@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SideBar from '../components/dashboard/pages/sidebar/sidebar';
-import Settings from '../components/dashboard/pages/profile/index';
+import Settings from '../components/dashboard/pages/profile';
+import Overview from '../components/dashboard/pages/overview';
 import Member from '../components/dashboard/pages/members/member';
 
 import { User, Monitor } from "../service/API";
@@ -39,7 +40,7 @@ function Dashboard({ user }) {
         title: "Ping Mon",
         created_at: new Date(2019, 12,3),
         active: true,
-        isUp: true,
+        isUp: false,
         paused: false,
         totalRequests: 50,
         lastRequest: new Date(2020, 2, 9),
@@ -54,7 +55,7 @@ function Dashboard({ user }) {
   return (
     <div className="flex flex-row">
       <SideBar view={view} setView={setView} />
-      <View Settings={<Settings user={user} />} Member={<Member user={user} />} view={view} />
+      <View Overview={<Overview user={user} />} Settings={<Settings user={user} />} Member={<Member user={user} />} view={view} />
     </div>
   );
 }
