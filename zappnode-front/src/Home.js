@@ -18,6 +18,7 @@ function Home() {
     if (!u.email) setUser(null);
     else setUser(u);
   }, []);
+
   return (
     <React.Fragment>
       <Switch>

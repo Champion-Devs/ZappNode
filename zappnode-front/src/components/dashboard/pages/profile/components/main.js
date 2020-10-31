@@ -9,7 +9,7 @@ const Main = ({ user }) => {
     <>
       {/* component imports */}
       <Account user={user} />
-      <Alerts />
+      <Alerts user={user} />
       <PublicStatusPage />
       <Other />
     </>

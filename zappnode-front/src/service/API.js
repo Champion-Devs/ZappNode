@@ -236,4 +236,4 @@ const API = {
   alerts: {},
 };
 
-module.exports = { API };
+module.exports = { API, User, Monitor };
