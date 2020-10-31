@@ -51,7 +51,7 @@ const KeywordMonitor = Monitor.discriminator(
     {
       url: String,
       keyword: String,
-      login: String,
+      username: String,
       password: String,
     },
     options,
