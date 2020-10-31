@@ -13,7 +13,7 @@ function Dashboard({ user }) {
 
   return (
     <div className={'dashboard'}>
-      <SideBar setView={setView} />
+      <SideBar view={view} setView={setView} />
       <View Settings={<Settings user={user} />} Member={<Member user={user} />} view={view} />
     </div>
   );
