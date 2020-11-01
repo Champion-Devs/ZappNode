@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import SideBar from '../components/dashboard/pages/sidebar/sidebar';
+import TopBar from '../components/dashboard/pages/topbar/topbar';
 import Settings from '../components/dashboard/pages/profile';
 import Overview from '../components/dashboard/pages/overview';
 import Member from '../components/dashboard/pages/members/member';
@@ -55,7 +56,10 @@ function Dashboard({ user }) {
   return (
     <div className="flex flex-row">
       <SideBar view={view} setView={setView} />
-      <View Overview={<Overview user={user} />} Settings={<Settings user={user} />} Member={<Member user={user} />} view={view} />
+      <div className="w-full">
+        <TopBar user={user} />
+        <View Overview={<Overview user={user} />} Settings={<Settings user={user} />} Member={<Member user={user} />} view={view} />
+      </div>
     </div>
   );
 }
