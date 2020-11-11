@@ -4,9 +4,7 @@ import TopBar from '../components/dashboard/pages/topbar/topbar';
 import Settings from '../components/dashboard/pages/profile';
 import Overview from '../components/dashboard/pages/overview';
 import Member from '../components/dashboard/pages/members/member';
-
 import { User, Monitor } from "../service/API";
-
 function View(props) {
   return <div className="flex flex-col w-full min-h-screen">{props[props.view]}</div>;
 }
@@ -60,6 +58,7 @@ function Dashboard({ user }) {
         <TopBar user={user} />
         <View Overview={<Overview user={user} />} Settings={<Settings user={user} />} Member={<Member user={user} />} view={view} />
       </div>
+
     </div>
   );
 }
