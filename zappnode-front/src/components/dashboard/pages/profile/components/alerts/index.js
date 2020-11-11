@@ -1,18 +1,7 @@
 import React from 'react';
 import { Card } from 'primereact/card';
 
-const Alerts = () => {
-
-  // Placeholder User object
-  // Currently assumes that email is the only notification option
-  const user = {
-    email: "user@gmail.com",
-    members: [
-      "member1@email.com",
-      "anothermember@gmail.com",
-      "someone@mail.ru"
-    ]
-  }
+const Alerts = ({ user }) => {
   const listMembers = user.members.map((member, index) => 
     <tr key={index}>
       <td className="border px-4 py-2 text-center"><i className="pi pi-envelope"></i></td>
