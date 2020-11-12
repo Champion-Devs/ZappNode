@@ -4,7 +4,6 @@ import { InputText } from 'primereact/inputtext';
 
 const Account = ({ user }) => {
   if (!user) user = {};
-  user.plan = '';
   const profileIcon = <i className="pi pi-user mr-4"></i>;
   let upgradePlan;
   // If the user's current plan is lower than the higher plan, then we show an

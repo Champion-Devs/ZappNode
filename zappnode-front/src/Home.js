@@ -3,15 +3,15 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { Login, Pricing, Register, Usage, Features, Dashboard } from './routes';
 import Landing from './landing';
 import Profile from './components/dashboard/pages/profile';
+import { API } from './service/API';
 
 // these will be the main pages for non signed in users
 function Home() {
   const [user, setUser] = useState(null);
-  useEffect(() => {
-    const u = fetch('/api/auth/local', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({}),
+  //checks for logged in user session on render, for persisting user across refreshing browser
+  useEffect(async () => {
+    const u = await fetch('/api/auth/active', {
+      method: 'GET',
     })
       .then((res) => res.json())
       .catch((err) => console.log(err));
@@ -38,7 +38,7 @@ function Home() {
           <Register />
         </Route>
         <Route exact path="/dashboard">
-          <Dashboard user={user} />
+          {user ? <Dashboard user={user} setUser={setUser} /> : <Redirect to="/logIn" />}
         </Route>
         <Route exact path="/dashboard/settings">
           <Profile />

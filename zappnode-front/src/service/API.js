@@ -213,9 +213,7 @@ const API = {
 
     logout: async () => {
       const res = await fetch('/api/auth/logout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(null),
+        method: 'GET',
       }).then((res) => res.json());
       return res;
     },
