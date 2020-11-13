@@ -21,6 +21,7 @@ function Dashboard({ user, setUser }) {
     facebookID: user.facebookID,
     role: user.role,
     plan: user.plan,
+    timezone: user.timezone,
     // dummy data for members and monitors
     members: user.members || ['other_user@email.com', 'anotherMember123@gmail.com'],
     monitors: user.monitors || [

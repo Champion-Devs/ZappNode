@@ -55,7 +55,7 @@ function Login({ setUser }) {
           </button>
           <a
             className="trans inline-block align-baseline font-bold text-sm text-green-500 hover:text-green-400"
-            href="#"
+            href="/"
           >
             Forgot Password?
           </a>

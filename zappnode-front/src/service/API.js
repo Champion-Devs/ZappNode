@@ -10,6 +10,7 @@ class User {
     plan = 'DEFAULT',
     members = [],
     monitors = [],
+    timezone = '',
   }) {
     this.name = name;
     this.email = email;
@@ -20,6 +21,7 @@ class User {
     this.plan = plan;
     this.members = members;
     this.monitors = monitors;
+    this.timezone = timezone;
   }
 }
 
@@ -227,6 +229,15 @@ const API = {
         body: JSON.stringify({ email: email, password: password }),
       }).then((res) => res.json());
       return res;
+    },
+
+    init: async () => {
+      const u = await fetch('/api/auth/active', {
+        method: 'GET',
+      })
+        .then((res) => res.json())
+        .catch((err) => console.log(err));
+      return u;
     },
   },
 

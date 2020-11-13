@@ -9,14 +9,13 @@ import { API } from './service/API';
 function Home() {
   const [user, setUser] = useState(null);
   //checks for logged in user session on render, for persisting user across refreshing browser
-  useEffect(async () => {
-    const u = await fetch('/api/auth/active', {
-      method: 'GET',
-    })
-      .then((res) => res.json())
-      .catch((err) => console.log(err));
-    if (!u.email) setUser(null);
-    else setUser(u);
+  useEffect(() => {
+    async function init() {
+      const u = API.auth.init();
+      if (!u.email) setUser(null);
+      else setUser(u);
+    }
+    init();
   }, []);
 
   return (

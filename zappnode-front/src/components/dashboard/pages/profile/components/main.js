@@ -10,7 +10,7 @@ const Main = ({ user }) => {
       <Account user={user} />
       <Alerts user={user} />
       <PublicStatusPage />
-      <Other />
+      <Other user={user} />
     </>
   );
 };
