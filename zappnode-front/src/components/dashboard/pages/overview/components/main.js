@@ -5,6 +5,9 @@ import { DataTable } from 'primereact/datatable';
 
 const Main = ({ user }) => {
   const desktopIcon = <i className="pi pi-desktop mr-4"></i>;
+  const liveMons = user.monitors.filter(m => m.isUp).length;
+  const downMons = user.monitors.filter(m => !m.isUp).length;
+  const pausedMons = user.monitors.filter(m => m.paused).length;
 
   const dateTemplate = (monitor) => {
     return <span>{monitor.created_at.toDateString()}</span>
@@ -25,6 +28,30 @@ const Main = ({ user }) => {
         </div>
         <hr />
         <div className="my-4">
+          <h1 className="text-lg font-bold">Currently using {user.monitors.length} monitors</h1>
+          <div className="my-4 flex text-center">
+            <div className="flex-auto">
+              <div>
+                <i className="pi pi-circle-on text-green-400 p-1" style={{"font-size": "1em"}} />
+                Live
+              </div>
+              {liveMons}
+            </div>
+            <div className="flex-auto">
+              <div>
+                <i className="pi pi-circle-on text-red-400 p-1" style={{"font-size": "1em"}} />
+                Down
+              </div>
+              {downMons}
+            </div>
+            <div className="flex-auto">
+              <div>
+                <i className="pi pi-circle-on text-orange-400 p-1" style={{"font-size": "1em"}} />
+                Paused
+              </div>
+              {pausedMons}
+            </div>
+          </div>
           <DataTable value={user.monitors}>
             <Column className="text-center" field="isUp" header="Status" body={statusTemplate} />
             <Column field="title" header="Title" />
