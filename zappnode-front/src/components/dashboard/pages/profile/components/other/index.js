@@ -7,12 +7,7 @@ import tzData from "./timezones.json";
 
 const timezones = tzData.data;
 
-const Other = () => {
-  // Placeholder user object
-  const user = {
-    timezone: "Europe/Amsterdam"
-  }
-
+const Other = ({user}) => {
   const [timezone, setTimezone] = useState(user.timezone);
 
   // Get current UTC time to calculate offsets for each timezone

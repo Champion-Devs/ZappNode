@@ -22,6 +22,7 @@ function Dashboard({ user }) {
       "other_user@email.com",
       "anotherMember123@gmail.com"
     ],
+    timezone: "Europe/Amsterdam",
     monitors: [
       new Monitor({
         title: "HTTP Mon",

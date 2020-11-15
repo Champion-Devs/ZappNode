@@ -1,12 +1,10 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Card } from 'primereact/card';
 import { Column } from 'primereact/column';
 import { DataTable } from 'primereact/datatable';
 
 const Main = ({ user }) => {
   const desktopIcon = <i className="pi pi-desktop mr-4"></i>;
-
-  console.log(typeof user.monitors)
 
   const dateTemplate = (monitor) => {
     return <span>{monitor.created_at.toDateString()}</span>

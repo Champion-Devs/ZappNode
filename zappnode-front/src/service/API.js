@@ -10,6 +10,7 @@ class User {
     plan = 'DEFAULT',
     members = [],
     monitors = [],
+    timezone = 'DEFAULT',
   }) {
     this.name = name;
     this.email = email;
@@ -20,6 +21,7 @@ class User {
     this.plan = plan;
     this.members = members;
     this.monitors = monitors;
+    this.timezone = timezone;
   }
 }
 
