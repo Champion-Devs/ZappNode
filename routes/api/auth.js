@@ -4,7 +4,7 @@ const router = express.Router();
 const passport = require('passport');
 
 router.post('/signUp', authController.signup);
-router.post('/logout', authController.logout);
+router.get('/logout', authController.logout);
 router.post('/google', function (request, response, next) {
   passport.authenticate('google', { scope: ['profile', 'email'] })(request, response, next);
 });
@@ -22,4 +22,7 @@ router.post('/local', passport.authenticate('local'), (req, res, next) => {
   next();
 });
 
+router.get('/active', authController.isLoggedIn, (req, res) => {
+  res.json(req.user);
+});
 module.exports = router;

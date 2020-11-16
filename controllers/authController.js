@@ -28,7 +28,7 @@ module.exports = {
         return next();
       } else {
         //check failed
-        res.status(400).send({ message: 'this is an error' });
+        res.status(400).json({ message: 'no logged in user' });
         return;
       }
     } catch (err) {

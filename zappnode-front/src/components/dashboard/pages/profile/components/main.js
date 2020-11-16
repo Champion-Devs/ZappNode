@@ -7,11 +7,10 @@ import Other from './other';
 const Main = ({ user }) => {
   return (
     <>
-      {/* component imports */}
       <Account user={user} />
       <Alerts user={user} />
       <PublicStatusPage />
-      <Other />
+      <Other user={user} />
     </>
   );
 };

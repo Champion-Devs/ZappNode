@@ -17,6 +17,7 @@ const User = new Schema({
   plan: String,
   members: Array,
   monitors: Array,
+  timezone: String,
 });
 
 User.pre('save', async function () {
