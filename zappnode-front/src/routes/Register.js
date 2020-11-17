@@ -5,7 +5,7 @@ import FacebookIcon from '../assets/imgs/btn_facebook.svg';
 import { AppContext } from '../context/AppState';
 
 function Register() {
-  const { registerUser, error } = useContext(AppContext);
+  const { registerUser } = useContext(AppContext);
 
   const [username, setUsername] = useState(null);
   const [email, setEmail] = useState(null);
@@ -24,10 +24,8 @@ function Register() {
       {redirect ? <Redirect to="/dashboard" /> : null}
       <div className="flex bg-lin">
         <form className="bg-white mx-auto rounded w-1/2 px-16 py-8 m-10" action="">
-          <h1 className="font-bold text-2xl mb-6 text-center">
-            Create an account
-          </h1>
-         <div className="mb-5">
+          <h1 className="font-bold text-2xl mb-6 text-center">Create an account</h1>
+          <div className="mb-5">
             <label className="block text-gray-700 text-sm font-bold">Username</label>
             <input
               className="trans appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-green-500"
@@ -94,7 +92,7 @@ function Register() {
               to="/api/auth/google"
               className="trans align-middle tracking-wide text-center flex w-full border border-gray-300 rounded shadow"
             >
-              <img src={GoogleIcon} className="block p-2 mx-auto" />
+              <img src={GoogleIcon} className="block p-2 mx-auto" alt="googleIcon" />
               <span className="w-full flex items-center font-bold text-gray-700 text-center">Sign in with Google</span>
             </Link>
           </div>
@@ -103,7 +101,7 @@ function Register() {
               to="/api/auth/facebook"
               className="trans align-middle bg-blue-600 tracking-wide justify-center flex w-full border border-blue-600 rounded shadow"
             >
-              <img src={FacebookIcon} className="block p-2" />
+              <img src={FacebookIcon} className="block p-2" alt="facebookIcon" />
               <span className="w-full flex items-center font-bold text-white">Log in with Facebook</span>
             </Link>
           </div>

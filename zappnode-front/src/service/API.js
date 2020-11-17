@@ -11,6 +11,7 @@ class User {
     members = [],
     monitors = [],
     timezone = 'DEFAULT',
+
   }) {
     this.name = name;
     this.email = email;
@@ -215,9 +216,7 @@ const API = {
 
     logout: async () => {
       const res = await fetch('/api/auth/logout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(null),
+        method: 'GET',
       }).then((res) => res.json());
       return res;
     },
@@ -231,6 +230,15 @@ const API = {
         body: JSON.stringify({ email: email, password: password }),
       }).then((res) => res.json());
       return res;
+    },
+
+    init: async () => {
+      const u = await fetch('/api/auth/active', {
+        method: 'GET',
+      })
+        .then((res) => res.json())
+        .catch((err) => console.log(err));
+      return u;
     },
   },
 

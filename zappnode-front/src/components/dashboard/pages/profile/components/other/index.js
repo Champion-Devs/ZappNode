@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { Card } from 'primereact/card';
 import { Dropdown } from 'primereact/dropdown';
 import { nameParse } from './timezone-name-parse';
-import moment from "moment-timezone";
-import tzData from "./timezones.json";
+import moment from 'moment-timezone';
+import tzData from './timezones.json';
 
 const timezones = tzData.data;
 
-const Other = ({user}) => {
+
+const Other = ({ user }) => {
   const [timezone, setTimezone] = useState(user.timezone);
 
   // Get current UTC time to calculate offsets for each timezone
@@ -17,11 +18,11 @@ const Other = ({user}) => {
   var tz = [];
   for (let zone of timezones) {
     tz.push({
-      name: [moment(UTC).tz(zone).format("Z"), nameParse(zone)].join(" "),
+      name: [moment(UTC).tz(zone).format('Z'), nameParse(zone)].join(' '),
       id: zone,
-      offset: moment.tz.zone(zone).utcOffset(UTC)
+      offset: moment.tz.zone(zone).utcOffset(UTC),
     });
-  };
+  }
 
   const timezoneChange = (e) => {
     e.preventDefault();
