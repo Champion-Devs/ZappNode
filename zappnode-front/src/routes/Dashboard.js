@@ -14,6 +14,7 @@ function Dashboard({ user, setUser }) {
 
   //uses api fetched user, some dummy data on monitors and members for testing
   user = new User({
+
     name: user.name,
     email: user.email,
     password: user.password,

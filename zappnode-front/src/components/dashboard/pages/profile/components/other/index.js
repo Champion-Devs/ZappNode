@@ -7,6 +7,7 @@ import tzData from './timezones.json';
 
 const timezones = tzData.data;
 
+
 const Other = ({ user }) => {
   const [timezone, setTimezone] = useState(user.timezone);
 
