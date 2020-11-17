@@ -11,7 +11,6 @@ class User {
     members = [],
     monitors = [],
     timezone = 'DEFAULT',
-
   }) {
     this.name = name;
     this.email = email;
